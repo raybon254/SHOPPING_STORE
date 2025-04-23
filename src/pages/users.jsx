@@ -1,8 +1,13 @@
 import React from "react";
 import { useFormik } from "formik";
+import { usePost } from "../components/ContextPost";
 import swal from "sweetalert";
+import { Button } from "../components/Button";
 
 function Signin(){
+
+    const { pData, postload} = usePost();
+    console.log(pData)
      const formik = useFormik({
         initialValues: {
             name: "",
@@ -11,13 +16,17 @@ function Signin(){
         },
 
         onSubmit: values => {
+            pData(values)
             swal("Registered successfully")
             formik.resetForm();
         }
+        
      })
 
      return (
         <div className="container">
+        {postload && <p className="loading-text">Submitting, please wait...</p>}
+
         <form onSubmit={formik.handleSubmit}>
 
             <input 
@@ -47,7 +56,7 @@ function Signin(){
             required
             />
 
-            <button type="submit">SUBMIT</button>
+            <Button name ="SUBMIT"/>  
         </form>
         </div>
      )

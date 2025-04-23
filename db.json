@@ -1,0 +1,27 @@
+{
+  "products": [
+    {
+      "id": "ad93",
+      "name": "watch",
+      "description": "rolex",
+      "price": 4500,
+      "brand": "watch",
+      "category": "Attire",
+      "image": "link"
+    }
+  ],
+  "users": [
+    {
+      "id": "2a22",
+      "name": "Ray",
+      "email": "ray@gmail.com",
+      "password": "ray254"
+    },
+    {
+      "id": "999e",
+      "name": "grace",
+      "email": "grace@gmail.com",
+      "password": "grace123"
+    }
+  ]
+}

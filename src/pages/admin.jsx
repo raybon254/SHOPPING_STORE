@@ -1,8 +1,12 @@
 import React from "react";
 import { useFormik } from "formik";
+import { useFetch } from "../components/ContextFetch";
 import swal from 'sweetalert'; //alert pop up
+import { Button } from "../components/Button";
+import { usePost } from "../components/ContextPost";
 
 function Product() {
+    const { pProduct } = usePost();
 
     const formik = useFormik({
         initialValues: {
@@ -14,6 +18,7 @@ function Product() {
             image: "",
             },
             onSubmit: values => {
+                pProduct(values)
                 swal("Data Submitted Successfully")
                 formik.resetForm();
             }
@@ -78,7 +83,7 @@ function Product() {
 
            </select>
 
-           <button type="submit">SUBMIT</button>
+           <Button name="SUBMIT"/>
 
         </form>
         </div>
