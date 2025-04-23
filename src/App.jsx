@@ -1,13 +1,18 @@
-import React from "react";
+import React from 'react'
+import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 import Home from "./pages/Home";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   return (
-    <div>
-      <Home />
-    </div>
+    <>
+      <NavBar />
+      <div>
+        <Home />
+      </div>
+      <Footer />
+    </>
   );
 };
 
