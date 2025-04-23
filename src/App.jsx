@@ -8,6 +8,7 @@ function App() {
   return (
     <>
       <NavBar/>
+      {/* Page Content will go here */}
       <Footer/>
     </>
   )
