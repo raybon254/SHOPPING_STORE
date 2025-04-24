@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <NavBar />
-      <Signin />
-      {/* <Product /> */}
+      {/* <Signin /> */}
+      <Product />
       <Footer />
     </>
   );

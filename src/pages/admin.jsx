@@ -25,7 +25,7 @@ function Product() {
     })
     
     return(
-        <div className="container">
+        <div className="container-product">
         <form onSubmit={formik.handleSubmit}>
             <input 
                 type="text"
