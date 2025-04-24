@@ -1,20 +1,26 @@
-import React from 'react'
-import NavBar from './components/NavBar'
-import Footer from './components/Footer'
-import About from './Pages/About';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
-  
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import routes from "./routes";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
+const App = () => {
   return (
-    <>
-      <NavBar/>
-      {/* Page Content will go here */
-      <About/>
-      }
-      <Footer/>
-    </>
-  )
-}
+    <Router>
+      <NavBar />
 
-export default App
+      <Routes>
+        {routes.map(({ path, element }, i) => (
+          <Route key={i} path={path} element={element} />
+        ))}
+      </Routes>
+
+      <Footer />
+    </Router>
+  );
+};
+
+export default App;
