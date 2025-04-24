@@ -1,6 +1,7 @@
 import Home from "./pages/Home";
 // import About from "./pages/About";
 // import Cart from "./pages/Cart";
+import NotFound from './pages/NotFound';
 
 const routes = [
   { path: "/", element: <Home /> },
