@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
+import Cart from './pages/Cart'
 
 function App() {
   
@@ -9,6 +10,7 @@ function App() {
     <>
       <NavBar/>
       {/* Page Content will go here */}
+      <Cart/>
       <Footer/>
     </>
   )
