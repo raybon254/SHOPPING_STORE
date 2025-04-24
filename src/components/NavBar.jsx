@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import cartIcon from "../assets/cart.png";
 
 const NavBar = () => {
@@ -22,7 +22,12 @@ const NavBar = () => {
           <Nav className="ms-auto mx-3 p-2  fs-5">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#products">Products</Nav.Link>
+            <Nav.Link href="#products">About</Nav.Link>
             <Nav.Link href="#cart">Cart</Nav.Link>
+            <NavDropdown title="Log in" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Log in As User</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Log in As Admin </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
