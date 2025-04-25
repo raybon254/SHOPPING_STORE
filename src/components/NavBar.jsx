@@ -17,10 +17,10 @@ const NavBar = () => {
           />
         </Navbar.Brand>
 
-        <Navbar.Brand href="#home">Shopping Cart</Navbar.Brand>
+        <Navbar.Brand href="#home" className="fw-bold font-monospace fs-4">Shopping Cart</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto mx-3 p-2  fs-5">
+          <Nav className="ms-auto mx-4 p-2  fs-5 ">
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
