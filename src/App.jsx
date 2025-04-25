@@ -12,6 +12,7 @@ function App() {
       {/* Page Content will go here */}
       <Cart/>
       <Footer/>
+      
     </>
   )
 }
