@@ -2,7 +2,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import {  useFetch } from "../components/ContextFetch";
 import Swal from "sweetalert2";
-import { set } from "date-fns";
+// import { set } from "date-fns";
 // import { useState } from "react";
 
 const Products = () => {
@@ -21,7 +21,7 @@ const Products = () => {
           confirmButtonText: 'CONFIRM',
           cancelButtonText: 'DECLINE',
           confirmButtonColor: '#3085d6',
-          width: '80%',
+        //   width: '80%',
         }).then((result) => {
             if(result.isConfirmed){
                 Swal.fire({
@@ -39,21 +39,17 @@ const Products = () => {
     
 
   return (
-    <div className="container py-5">
+    <div className="container py-5 ">
         <h1 className="mb-4 text-center display-3 fw-bold">Our Products</h1>
 
     {/* diplay row per category from fetch */}
         {
-            categories.map((cat, index)=> (
-                <div>
-                    <h1 className="mb-4 mt-4 text-center display-8 fw-bold" key={index}>{cat}</h1>
-
-                   
+                <div>                  
                     <div className="row gy-4">
                         {
-                            product.filter((p) => p.category === cat ).map((filtered,index) => (
+                           product.map((filtered,index) => (
                                 <div className="col-sm-6 col-md-4 col-lg-3" key={index}>
-                                    <div className="card h-100" onClick={() => handleClick(filtered)}>
+                                    <div className="card h-100 card-hover" onClick={() => handleClick(filtered)}>
                                         <img src={filtered.image} className="card-img-top" alt="Image" />
                                         <div className="card-body">
                                             <h5 className="card-title fw-bold">{filtered.name}</h5>
@@ -67,11 +63,21 @@ const Products = () => {
                         }
                     </div>
                 </div>
-                ))
             
         }
+    <style>
+    {`.card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          }
 
+          .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            // background-color: silver;
+          }`}
+    </style>
   </div>
+  
   );
 };
 

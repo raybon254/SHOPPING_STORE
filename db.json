@@ -1,33 +1,6 @@
 {
   "products": [
     {
-      "id": "3ffe",
-      "name": "Running Shoes",
-      "description": "Lightweight and breathable shoes designed for running and outdoor activities.",
-      "price": 13499,
-      "brand": "Nike",
-      "category": "Shoes & Accessories",
-      "image": "https://storage.googleapis.com/urbantreks/products/nike-running-shoes_6486.webp"
-    },
-    {
-      "id": "7d73",
-      "name": "T-shirt",
-      "description": "Comfortable cotton T-shirt, perfect for casual wear",
-      "price": 1679,
-      "brand": "Adidas",
-      "category": "Clothing & Fashion",
-      "image": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/40d7e82406114729980319d9c4bb3d4e_9366/IQ5286_01_laydown.jpg"
-    },
-    {
-      "id": "3210",
-      "name": "Sunglasses",
-      "description": "UV-protected sunglasses with a sleek design.",
-      "price": 2200,
-      "brand": "Ray-Ban",
-      "category": "Shoes & Accessories",
-      "image": "https://images2.ray-ban.com//cdn-record-files-pi/1d3147b3-6d35-46eb-8108-a35801354564/06a95c2b-5871-4d1f-a347-ad33014afe0c/0RB3016__W0366__STD__shad__qt.png?impolicy=RB_Product_clone&width=700&bgc=%23f2f2f2"
-    },
-    {
       "id": "4945",
       "name": "Smartphone",
       "description": "Newest smartphone with 128GB storage, powerful camera, and fast processing power.",
@@ -37,58 +10,67 @@
       "image": "https://smartphonestorekenya.com/wp-content/uploads/2023/05/SAMSUNG-GALAXY-S23-ULTRA.jpeg"
     },
     {
-      "id": "639d",
-      "name": "Blender",
-      "description": "High-powered blender perfect for making smoothies and food prep.",
-      "price": 10560,
-      "brand": "Oster",
-      "category": "Kitchen and dining",
-      "image": "https://www.cnet.com/a/img/resize/e8b36d08c2343ddfac0853768e62bb6d0390fe05/hub/2014/07/21/566f7976-b6fa-4743-80b6-daa0fe630e84/oster-beehive-product-photos-2.jpg?auto=webp&fit=crop&height=1200&width=1200"
+      "id": "4946",
+      "name": "iPhone 14 Pro Max",
+      "description": "Premium iPhone with 256GB storage, A16 chip, and ProMotion display.",
+      "price": 189999,
+      "brand": "Apple",
+      "category": "Electronic & Gadgets",
+      "image": "https://trunknettechnologies.co.ke/wp-content/uploads/2024/03/iphone-14-1tb.jpg"
     },
     {
-      "id": "f0e4",
-      "name": "Camping Tent",
-      "description": "Four-person camping tent with waterproof fabric and easy setup.",
-      "price": 45000,
-      "brand": "Coleman",
-      "category": "Travel & Outdoor gear",
-      "image": "https://newellbrands.imgix.net/8623a226-ded0-39fe-9464-f82acea73b77/8623a226-ded0-39fe-9464-f82acea73b77.jpeg"
+      "id": "4947",
+      "name": "Pixel 7 Pro",
+      "description": "Google’s flagship with an amazing camera system and clean Android experience.",
+      "price": 129999,
+      "brand": "Google",
+      "category": "Electronic & Gadgets",
+      "image": "https://www.newdery.com/cdn/shop/files/20211B01100100.jpg?v=1713860365"
     },
     {
-      "id": "6045",
-      "name": "Face Cream",
-      "description": "Moisturizing cream for all skin types, provides hydration and smoothness.",
-      "price": 7000,
-      "brand": "Neutrogena",
-      "category": "Health & Beauty",
-      "image": "https://images.ctfassets.net/f3tkdizvrgki/59oU2NiIRz6mrJzGjqhcQO/ae3437846e7ae8b52eeb2fdb6878eb72/ntg_062600306890_can_bright_boost_brightening_gel_moisturizing_face_cream_neoglucosamine_50ml_010_2000wx2000h_1-fr-ca"
+      "id": "4948",
+      "name": "OnePlus 11",
+      "description": "Sleek design with 120Hz AMOLED display and blazing fast charging.",
+      "price": 115000,
+      "brand": "OnePlus",
+      "category": "Electronic & Gadgets",
+      "image": "https://m.media-amazon.com/images/I/71NW2QaIzlL._AC_SL1500_.jpg"
     },
     {
-      "id": "e1a4",
-      "name": "The Great Gatsby",
-      "description": "A classic novel by F. Scott Fitzgerald, exploring themes of love, wealth, and social change.",
-      "price": 1499,
-      "brand": "Penguin Classics",
-      "category": "Books & Stationary",
-      "image": "https://cdn2.penguin.com.au/covers/original/9780857980960.jpg"
+      "id": "4949",
+      "name": "Xiaomi 13 Pro",
+      "description": "Powerful flagship with Leica camera tech and Snapdragon 8 Gen 2 chip.",
+      "price": 109999,
+      "brand": "Xiaomi",
+      "category": "Electronic & Gadgets",
+      "image": "https://m.media-amazon.com/images/I/61RvCwjI7dL._AC_UF1000,1000_QL80_.jpg"
     },
     {
-      "id": "b7b3",
-      "name": "Lego Set",
-      "description": "Building block set to create vehicles, buildings, and characters.",
-      "price": 2799,
-      "brand": "Lego",
-      "category": "Toy & Games",
-      "image": "https://m.media-amazon.com/images/I/81gFeGH6mNL._AC_SL1500_.jpg"
+      "id": "4950",
+      "name": "Huawei Mate 50 Pro",
+      "description": "Flagship smartphone with advanced camera tech, OLED display, and Kirin 9000 chipset.",
+      "price": 159999,
+      "brand": "Huawei",
+      "category": "Electronic & Gadgets",
+      "image": "https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/pdp/phones/mate50-pro/img/kv/sp-1.jpg"
     },
     {
-      "id": "e106",
-      "name": "Sofa",
-      "description": "Comfortable 3-seater sofa in modern style, perfect for any living room.",
+      "id": "4951",
+      "name": "Motorola Edge 30 Ultra",
+      "description": "Premium 5G phone with a 200MP camera and Snapdragon 8 Gen 1 processor.",
+      "price": 115000,
+      "brand": "Motorola",
+      "category": "Electronic & Gadgets",
+      "image": "https://m-cdn.phonearena.com/images/article/141293-wide-two_1200/Pricing-leaks-for-the-European-version-of-the-Moto-X30-Pro-aka-Motorola-Edge-30-Ultra.jpg"
+    },
+    {
+      "id": "4952",
+      "name": "Nokia X20",
+      "description": "Affordable 5G smartphone with clean Android experience and great battery life.",
       "price": 49999,
-      "brand": "Ikea",
-      "category": "Funiture & Decor",
-      "image": "https://www.ikea.com/images/jaettebo-series-4aeab9d3b5d5c17920756c715aba35ce.jpg?f=s"
+      "brand": "Nokia",
+      "category": "Electronic & Gadgets",
+      "image": "https://www.phoneplacekenya.com/wp-content/uploads/2020/03/Nokia-8.3-5G.jpg"
     }
   ],
   "users": [
