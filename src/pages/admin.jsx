@@ -76,10 +76,16 @@ function Product() {
            <select name="category" id="category" onChange={formik.handleChange} value={formik.values.category}>
 
                 <option value="">Select category</option>
-                <option value="Attire">Attire</option>
-                <option value="kitchen ware">kitchen ware</option>
-                <option value="electronics">electronics</option>
-                <option value="laundry">laundry</option>
+                <option value="Clothing & Fashion">🧥 Clothing & Fashion</option>
+                <option value="Electronic & Gadgets">📱 Electronic & Gadgets</option>
+                <option value="Home & Living">🏠 Home & Living</option>
+                <option value="Kitchen and dining">🍽️ Kitchen and dining</option>
+                <option value="Health & Beauty">🧴 Health & Beauty</option>
+                <option value="Toy & Games">🧸 Toy & Games</option>
+                <option value="Funiture & Decor">🛋️ Funiture & Decor</option>
+                <option value="Books & Stationary">📚 Books & Stationary</option>
+                <option value="Shoes & Accessories">👟 Shoes & Accessories</option>
+                <option value="Travel & Outdoor gear">🧳 Travel & Outdoor gear</option>
 
            </select>
 
