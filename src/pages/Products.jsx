@@ -1,4 +1,5 @@
-import React from "react";
+    import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import {  useFetch } from "../components/ContextFetch";
 import Swal from "sweetalert2";
 // import { set } from "date-fns";
@@ -33,7 +34,6 @@ const Products = () => {
         })
       };
     const { product } = useFetch();
-    // const categories = Array.from(new Set(product.map(((d)=> d.category))))
     // const [ display, setdisplay ] = useState([])
     
 

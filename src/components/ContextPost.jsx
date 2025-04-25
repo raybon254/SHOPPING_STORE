@@ -39,7 +39,7 @@ export const PostData = ({children}) => {
     const pProduct = async(newProduct) => {
         try{
             setpostload(true)
-            const res = await fetch("http://localhost:3001/products",{
+            const res = await fetch("http://localhost:3000/products",{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
