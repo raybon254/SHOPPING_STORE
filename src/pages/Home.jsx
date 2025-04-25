@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {Link} from 'react-router-dom'
 
 const products = [
   {
@@ -27,7 +28,7 @@ const Home = () => {
     // Hide welcome message after 6 seconds
     const welcomeTimer = setTimeout(() => {
       setShowWelcome(false);
-    }, 6000);
+    }, 3000);
 
     return () => clearTimeout(welcomeTimer);
   }, []);
@@ -108,9 +109,10 @@ const Home = () => {
                 <div className="card-body">
                   <h5 className="card-title">{card.title}</h5>
                   <p className="card-text">{card.text}</p>
-                  <button className="btn btn-outline-primary w-100">
+            
+                  <Link as={Link} to="/products" >  <button className="btn btn-outline-primary w-100">
                   🛒 Shop Now
-                  </button>
+                  </button>  </Link>
                 </div>
               </div>
             </div>
