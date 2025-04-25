@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Router>
       <NavBar />
-
+      
       <Routes>
         {routes.map(({ path, element }, i) => (
           <Route key={i} path={path} element={element} />
@@ -23,4 +23,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default App;
