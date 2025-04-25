@@ -1,19 +1,26 @@
-import React from 'react';
-import './App.css';
-import Signin from './pages/users';
-import Product from './pages/admin';
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import routes from "./routes";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
+const App = () => {
   return (
-    <>
+    <Router>
       <NavBar />
-      {/* <Signin /> */}
-      <Product />
-      <Footer />
-    </>
-  );
-}
+      
+      <Routes>
+        {routes.map(({ path, element }, i) => (
+          <Route key={i} path={path} element={element} />
+        ))}
+      </Routes>
 
-export default App;
+      <Footer />
+    </Router>
+  );
+};
+
+export default App;
