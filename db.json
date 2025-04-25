@@ -22,6 +22,12 @@
       "name": "grace",
       "email": "grace@gmail.com",
       "password": "grace123"
+    },
+    {
+      "id": "bcd5",
+      "name": "kay",
+      "email": "kay@gmail.com",
+      "password": "kay254"
     }
   ]
 }

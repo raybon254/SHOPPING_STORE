@@ -1,8 +1,8 @@
 body{
     background-color: rgb(18, 24, 24);
-    background-image: url("https://thumbs.dreamstime.com/b/black-friday-scene-crowded-malls-long-queues-online-shopping-deals-wooden-background-black-friday-scene-crowded-318363939.jpg");
+    /* background-image: url("https://thumbs.dreamstime.com/b/black-friday-scene-crowded-malls-long-queues-online-shopping-deals-wooden-background-black-friday-scene-crowded-318363939.jpg"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* backdrop-filter: blur(2px); */
+    /* height: 100vh; */
 }
