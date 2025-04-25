@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import Products from "./pages/Products";
-import Product from "./pages/admin";
 import './App.css';
 
 import routes from "./routes";
@@ -16,13 +14,12 @@ const App = () => {
     <Router>
       <NavBar />
       
-      {/* <Routes>
+      <Routes>
         {routes.map(({ path, element }, i) => (
           <Route key={i} path={path} element={element} />
         ))}
-      </Routes> */}
-    <Products />
-    {/* < Product /> */}
+      </Routes>
+   
 
       <Footer />
     </Router>

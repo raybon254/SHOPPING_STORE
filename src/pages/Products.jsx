@@ -13,16 +13,25 @@ const Products = () => {
           title: `${product.name}`,
           text: `${product.description}`,
           imageUrl: product.image, // You can display the product image in the popup
-          imageWidth: 600,
-          imageHeight: 450,
+          imageWidth: 200,
+          imageHeight: 200,
           imageAlt: 'Product image',
-          confirmButtonText: 'Add to Cart',
+          showCloseButton: true,
+          showCancelButton: true,
+          confirmButtonText: 'CONFIRM',
+          cancelButtonText: 'DECLINE',
           confirmButtonColor: '#3085d6',
-          cancelButtonText: 'Close',
-          cancelButtonColor: '#d33',
           width: '80%',
-          heightAuto: false,
-        });
+        }).then((result) => {
+            if(result.isConfirmed){
+                Swal.fire({
+                    html:'<p class="fs-6 text-muted">Successfully added to cart</p>'})
+            }
+            else if(result.isDismissed){
+                Swal.fire({
+                    html:'<p class="fs-6 text-muted">Cancelled</p>'})
+            }
+        })
       };
     const { product } = useFetch();
     const categories = Array.from(new Set(product.map(((d)=> d.category))))
@@ -37,7 +46,7 @@ const Products = () => {
         {
             categories.map((cat, index)=> (
                 <div>
-                    <h1 className="mb-4 text-center display-8 fw-bold" key={index}>{cat}</h1>
+                    <h1 className="mb-4 mt-4 text-center display-8 fw-bold" key={index}>{cat}</h1>
 
                    
                     <div className="row gy-4">
