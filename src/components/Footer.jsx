@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import cartIcon from "../assets/cart.png";
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -19,12 +20,12 @@ const Footer = () => {
               />
               Shopping made Interesting
             </h5>
-            <p>&copy; {new Date().getFullYear()} All rights reserved.</p>
+            <p className="">&copy; {new Date().getFullYear()} All rights reserved.</p>
           </Col>
           <Col md={6} className="text-md-end fs-5">
-            <p>Browse to see Latest Products</p>
+            <p>Browse Our <Link as={Link} to="/products" className="fw-bold text-success mx-1">Products </Link> page for more. </p>
           </Col>
-        </Row>
+        </Row>  
       </Container>
     </footer>
   );
