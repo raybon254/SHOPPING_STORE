@@ -13,7 +13,7 @@ export const Fetch = ({children}) => {
     const fetchData = async() => {
          //fetch data
      try{
-        const res = await fetch("http://localhost:3001/products");
+        const res = await fetch("http://localhost:3000/products");
         const data = await res.json();
             setproduct(data);
     }

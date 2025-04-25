@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import { useContext, useState , useEffect, } from "react";
+import { useContext, useState } from "react";
 import swal from "sweetalert";
 
 // Data Post
@@ -14,7 +14,7 @@ export const PostData = ({children}) => {
     const pData = async(newUser) => {
         try{
             setpostload(true)
-            const res = await fetch("http://localhost:3001/users",{
+            const res = await fetch("http://localhost:3000/users",{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -39,7 +39,7 @@ export const PostData = ({children}) => {
     const pProduct = async(newProduct) => {
         try{
             setpostload(true)
-            const res = await fetch("http://localhost:3001/products",{
+            const res = await fetch("http://localhost:3000/products",{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
