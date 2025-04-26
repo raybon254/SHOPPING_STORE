@@ -1,4 +1,5 @@
-import React from "react";
+    import React from "react";
+
 import {  useFetch } from "../components/ContextFetch";
 import Swal from "sweetalert2";
 // import { set } from "date-fns";
@@ -33,12 +34,13 @@ const Products = () => {
         })
       };
     const { product } = useFetch();
+    // const categories = Array.from(new Set(product.map(((d)=> d.category))))
     // const [ display, setdisplay ] = useState([])
     
 
   return (
     <div className="container py-5 ">
-        <h1 className="mb-4 text-center fw-medium text-secondary">Our Products</h1>
+        <h1 className="mb-4 text-center display-3 fw-bold">Our Products</h1>
 
     {/* diplay row per category from fetch */}
         {

@@ -4,19 +4,19 @@ import {Link} from 'react-router-dom'
 
 const products = [
   {
-    title: "Wireless Headphones",
-    text: "Enjoy premium sound quality with long battery life.",
-    img: "https://tse1.mm.bing.net/th/id/OIP.Ll3ZJh3h1Qxg67-VjQMTvQHaE8?cb=iwc1&rs=1&pid=ImgDetMain",
+    title: "iPhone 14 Pro Max",
+    text: "Premium iPhone eith 256GB storage ,A16chip and Pro Motion display",
+    img: "https://th.bing.com/th/id/OIP.xveu0Wpg1mrvNAQsRLijLAHaE8?w=252&h=180&c=7&r=0&o=5&cb=iwc1&pid=1.7",
   },
   {
-    title: "Smartwatch",
-    text: "Keep track of your health and notifications on the go.",
-    img: "https://th.bing.com/th/id/OIP.WNNzF19w5e8sV7fJdNuCYwHaE8?w=274&h=183&c=7&r=0&o=5&cb=iwc1&pid=1.7",
+    title: "Google Pixel 7 Pro",
+    text: "Google’s flagship with an amazing camera system and clean Android experience.",
+    img: "https://tse2.mm.bing.net/th/id/OIP.Ad_0JzgXUSsHKkVlt2R4FwHaE8?cb=iwc1&rs=1&pid=ImgDetMain",
   },
   {
-    title: "Gaming Laptop",
-    text: "Enjoy the best gameplay the world has ever seen.",
-    img: "https://kaizenaire.com/wp-content/uploads/2023/12/image-1702.jpeg",
+    title: "OnePlus 11",
+    text: "Sleek design with 120Hz AMOLED display and blazing fast charging.",
+    img: "https://th.bing.com/th/id/OIP.9QQ11ogezpZE-Qzp2zGxZgHaE8?w=241&h=180&c=7&r=0&o=5&cb=iwc1&pid=1.7",
   },
 ];
 
@@ -137,7 +137,7 @@ const Home = () => {
           .card-hover:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            background-color: silver;
+            // background-color: silver;
           }
         `}
       </style>
