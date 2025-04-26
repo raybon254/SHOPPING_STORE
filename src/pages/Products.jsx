@@ -27,10 +27,10 @@ const Products = () => {
                 Swal.fire({
                     html:'<p class="fs-6 text-muted">Successfully added to cart</p>'})
             }
-            else if(result.isDismissed){
-                Swal.fire({
-                    html:'<p class="fs-6 text-muted">Cancelled</p>'})
-            }
+            // else if(result.isDismissed){
+            //     Swal.fire({
+            //         html:'<p class="fs-6 text-muted">Cancelled</p>'})
+            // }
         })
       };
     const { product } = useFetch();
@@ -39,7 +39,7 @@ const Products = () => {
 
   return (
     <div className="container py-5 ">
-        <h1 className="mb-4 text-center display-3 fw-bold">Our Products</h1>
+        <h1 className="mb-4 text-center display-3 fw-medium">Our Products</h1>
 
     {/* diplay row per category from fetch */}
         {
@@ -49,12 +49,12 @@ const Products = () => {
                            product.map((filtered,index) => (
                                 <div className="col-sm-6 col-md-4 col-lg-3" key={index}>
                                     <div className="card h-100 card-hover" onClick={() => handleClick(filtered)}>
-                                        <img src={filtered.image} className="card-img-top" alt="Image" />
-                                        <div className="card-body">
+                                        <img src={filtered.image} className="card-img-top" style={{ height: '200px', objectFit: 'cover' }} alt="Image" />
+                                        <div className="card-body d-flex flex-column">
                                             <h5 className="card-title fw-bold">{filtered.name}</h5>
-                                            <p className="card-text">{filtered.description}</p>
+                                            <p className="card-text text-truncate ">{filtered.description}</p>
                                             <p className="card-text fw-bold">Price:{filtered.price}</p>
-                                            <button className="btn btn-primary w-100">Add to Cart</button>
+                                            <button className="btn btn-primary w-100  mt-auto">Add to Cart</button>
                                         </div>
                                     </div>
                               </div>
