@@ -75,22 +75,86 @@
   ],
   "users": [
     {
-      "id": "2a22",
+      "id": "1",
       "name": "Ray",
       "email": "ray@gmail.com",
-      "password": "ray254"
+      "password": "ray254",
+      "type": "user"
     },
     {
-      "id": "999e",
+      "id": "2",
       "name": "grace",
       "email": "grace@gmail.com",
-      "password": "grace123"
+      "password": "grace123",
+      "type": "user"
     },
     {
-      "id": "bcd5",
+      "id": "3",
       "name": "kay",
       "email": "kay@gmail.com",
-      "password": "kay254"
+      "password": "kay254",
+      "type": "user"
+    },
+    {
+      "id": "7c23",
+      "name": "Baba",
+      "email": "kel@gmail.com",
+      "password": "Ndunda123",
+      "type": "user"
+    }
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "productsId": [
+        {
+          "productId": "4950",
+          "quantity": 3
+        },
+        {
+          "productId": "4951",
+          "quantity": 2
+        },
+        {
+          "productId": "4947",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "productsId": [
+        {
+          "productId": "4946",
+          "quantity": 1
+        },
+        {
+          "productId": "4947",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "productsId": [
+        {
+          "productId": "4945",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "7c23",
+      "productsId": [
+        {
+          "productId": "4946",
+          "quantity": 2
+        },
+        {
+          "productId": "4947",
+          "quantity": 2
+        }
+      ]
     }
   ]
 }
