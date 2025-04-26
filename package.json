@@ -13,13 +13,21 @@
     "bootstrap": "^5.3.5",
     "dom": "^0.0.3",
     "formik": "^2.4.6",
+<<<<<<< HEAD
     "json-server": "^1.0.0-beta.3",
+=======
+    "json": "^11.0.0",
+>>>>>>> d3f209eb2bec3c5a3f84bfaa61cd2ac2265c47e3
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0",
     "react-router": "^6.30.0",
     "react-router-dom": "^6.30.0",
     "router": "^2.2.0",
+<<<<<<< HEAD
+=======
+    "server": "^1.0.41",
+>>>>>>> d3f209eb2bec3c5a3f84bfaa61cd2ac2265c47e3
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.19.1",
     "toastify": "^2.0.1"
