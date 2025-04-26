@@ -25,10 +25,10 @@ const Home = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   useEffect(() => {
-    // Hide welcome message after 3 seconds
+    // Hide welcome message after 2.5 seconds
     const welcomeTimer = setTimeout(() => {
       setShowWelcome(false);
-    }, 3000);
+    }, 2500);
 
     return () => clearTimeout(welcomeTimer);
   }, []);
@@ -37,7 +37,7 @@ const Home = () => {
     if (!showWelcome) {
       const slideTimer = setInterval(() => {
         setSlideIndex((prevIndex) => (prevIndex + 1) % products.length);
-      }, 4000); // Change slide every 4 seconds
+      }, 2500); // Change slide every 2.5 seconds
 
       return () => clearInterval(slideTimer);
     }
