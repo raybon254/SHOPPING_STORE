@@ -115,7 +115,7 @@ const About = () => {
         <h2 className="section-title text-center mb-4">Contact Us</h2>
         <Row>
           <Col md={12} className="mb-4 text-center">
-            <p><strong>Email:</strong> support@shoppingcart.com</p>
+            <p><strong>Email:</strong> support@shoppingstore.com</p>
             <p><strong>Phone:</strong> 0723343245</p>
             <p><strong>Address:</strong> Ngong road, Nairobi, Kenya</p>
             <p><strong>Business Hours:</strong> Monday - Friday, 9 AM - 5 PM</p>
