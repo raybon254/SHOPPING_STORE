@@ -1,13 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {Link} from 'react-router-dom'
+
+const products = [
+  {
+    title: "Wireless Headphones",
+    text: "Enjoy premium sound quality with long battery life.",
+    img: "https://tse1.mm.bing.net/th/id/OIP.Ll3ZJh3h1Qxg67-VjQMTvQHaE8?cb=iwc1&rs=1&pid=ImgDetMain",
+  },
+  {
+    title: "Smartwatch",
+    text: "Keep track of your health and notifications on the go.",
+    img: "https://th.bing.com/th/id/OIP.WNNzF19w5e8sV7fJdNuCYwHaE8?w=274&h=183&c=7&r=0&o=5&cb=iwc1&pid=1.7",
+  },
+  {
+    title: "Gaming Laptop",
+    text: "Enjoy the best gameplay the world has ever seen.",
+    img: "https://kaizenaire.com/wp-content/uploads/2023/12/image-1702.jpeg",
+  },
+];
+
 const Home = () => {
+  const [showWelcome, setShowWelcome] = useState(true);
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  useEffect(() => {
+    // Hide welcome message after 6 seconds
+    const welcomeTimer = setTimeout(() => {
+      setShowWelcome(false);
+    }, 3000);
+
+    return () => clearTimeout(welcomeTimer);
+  }, []);
+
+  useEffect(() => {
+    if (!showWelcome) {
+      const slideTimer = setInterval(() => {
+        setSlideIndex((prevIndex) => (prevIndex + 1) % products.length);
+      }, 4000); // Change slide every 4 seconds
+
+      return () => clearInterval(slideTimer);
+    }
+  }, [showWelcome]);
+
   return (
     <div>
       <section
         className="hero text-white d-flex align-items-center justify-content-center position-relative"
         style={{
-          backgroundImage:
-            'url(https://tse1.mm.bing.net/th/id/OIP.nDeQgnPOSsLzUKwS1oeKGQHaE4?rs=1&pid=ImgDetMain)',
+          backgroundImage: `url(${showWelcome ? 
+            'https://img.freepik.com/premium-vector/abstract-slant-lines-blue-background-gradient_626195-83.jpg?w=1480' : 
+            products[slideIndex].img})`,
           minHeight: "500px",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -25,36 +68,36 @@ const Home = () => {
             zIndex: 1,
           }}
         ></div>
-       {/*First display text*/}
-        <div style={{ zIndex: 2, textAlign: "center" }}>
-          <h1 className="display-4 fw-bold">Welcome to Group 3 Store</h1>
-          <p className="lead">Find the best products at the best prices!</p>
+
+        <div
+          className="text-center slide-in"
+          style={{
+            zIndex: 2,
+            color: "white",
+            opacity: 0,
+            transform: "translateX(-100px)",
+            animation: "slideFromLeft 1s ease-out forwards",
+          }}
+        >
+          {showWelcome ? (
+            <>
+              <h1 className="display-4 fw-bold">Welcome to Shopping Store</h1>
+              <p className="lead">Find the best products at the best prices!</p>
+            </>
+          ) : (
+            <>
+              <h1 className="display-4 fw-bold">{products[slideIndex].title}</h1>
+              <p className="lead">{products[slideIndex].text}</p>
+            </>
+          )}
         </div>
       </section>
-    {/*Cards Section*/}
+      
+
+      {/* Cards Section */}
       <section className="container py-5">
         <div className="row g-4">
-          {[
-            {
-              title: "Wireless Headphones",
-              text: "Enjoy premium sound quality with long battery life.",
-              img: "https://th.bing.com/th/id/OIP.ZDzKikWCh-7neOYvkknPowHaE8?w=302&h=201&c=7&r=0&o=5&pid=1.7",
-              btn: "Shop Now",
-            },
-            {
-              title: "Smartwatch",
-              text: "Keep track of your health and notifications on the go.",
-              img: "https://th.bing.com/th/id/R.0e9ac20138f5340e4bb2fbf4857d7037?rik=Bwe9acRY8PgxdQ&pid=ImgRaw&r=0",
-              btn: "Buy Now",
-            },
-            {
-              title: "Gaming laptop",
-              text: "Enjoy the best gameplay the world has ever seen .",
-              img: "https://kaizenaire.com/wp-content/uploads/2023/12/image-1702.jpeg",
-              btn: "Explore Now",
-            },
-            
-          ].map((card, index) => (/*iterates and creates new jsx for each element*/
+          {products.map((card, index) => (
             <div className="col-md-4" key={index}>
               <div className="card shadow-lg rounded-4 border-0 h-100 card-hover">
                 <img
@@ -66,9 +109,10 @@ const Home = () => {
                 <div className="card-body">
                   <h5 className="card-title">{card.title}</h5>
                   <p className="card-text">{card.text}</p>
-                  <button className="btn btn-outline-primary w-100">
-                    {card.btn}
-                  </button>
+            
+                  <Link as={Link} to="/products" >  <button className="btn btn-outline-primary w-100">
+                  🛒 Shop Now
+                  </button>  </Link>
                 </div>
               </div>
             </div>
@@ -76,14 +120,24 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Animations */}
       <style>
         {`
+          @keyframes slideFromLeft {
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+
           .card-hover {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
           }
+
           .card-hover:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            background-color: silver;
           }
         `}
       </style>
