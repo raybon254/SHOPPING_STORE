@@ -1,5 +1,4 @@
-    import React from "react";
-
+import React from "react";
 import {  useFetch } from "../components/ContextFetch";
 import Swal from "sweetalert2";
 // import { set } from "date-fns";
@@ -18,14 +17,18 @@ const Products = () => {
           imageAlt: 'Product image',
           showCloseButton: true,
           showCancelButton: true,
-          confirmButtonText: 'CONFIRM',
-          cancelButtonText: 'DECLINE',
-          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Confirm',
+          cancelButtonText: 'Decline',
+          confirmButtonColor: 'green',
+          cancelButtonColor: 'red',
         //   width: '80%',
         }).then((result) => {
             if(result.isConfirmed){
                 Swal.fire({
-                    html:'<p class="fs-6 text-muted">Successfully added to cart</p>'})
+                    html:'<p class="fs-6 text-muted">Successfully added to cart</p>',
+                    confirmButtonColor: 'green',
+                  })
+                    
             }
             // else if(result.isDismissed){
             //     Swal.fire({
