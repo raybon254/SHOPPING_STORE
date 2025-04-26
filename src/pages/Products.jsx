@@ -17,14 +17,18 @@ const Products = () => {
           imageAlt: 'Product image',
           showCloseButton: true,
           showCancelButton: true,
-          confirmButtonText: 'CONFIRM',
-          cancelButtonText: 'DECLINE',
-          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Confirm',
+          cancelButtonText: 'Decline',
+          confirmButtonColor: 'green',
+          cancelButtonColor: 'red',
         //   width: '80%',
         }).then((result) => {
             if(result.isConfirmed){
                 Swal.fire({
-                    html:'<p class="fs-6 text-muted">Successfully added to cart</p>'})
+                    html:'<p class="fs-6 text-muted">Successfully added to cart</p>',
+                    confirmButtonColor: 'green',
+                  })
+                    
             }
             // else if(result.isDismissed){
             //     Swal.fire({
@@ -33,17 +37,18 @@ const Products = () => {
         })
       };
     const { product } = useFetch();
+    // const categories = Array.from(new Set(product.map(((d)=> d.category))))
     // const [ display, setdisplay ] = useState([])
     
 
   return (
     <div className="container py-5 ">
-        <h1 className="mb-4 text-center display-3 fw-medium">Our Products</h1>
+        <h1 className="mb-4 text-center fw-medium ">Our Products</h1>
 
     {/* diplay row per category from fetch */}
         {
                 <div>                  
-                    <div className="row gy-4">
+                    <div className="row gy-4 mt-4">
                         {
                            product.map((filtered,index) => (
                                 <div className="col-sm-6 col-md-4 col-lg-3" key={index}>
@@ -71,7 +76,6 @@ const Products = () => {
           .card-hover:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            // background-color: silver;
           }`}
     </style>
   </div>
