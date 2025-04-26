@@ -109,11 +109,15 @@
       "productsId": [
         {
           "productId": "4950",
-          "quantity": 2
+          "quantity": 3
         },
         {
           "productId": "4951",
-          "quantity": 1
+          "quantity": 2
+        },
+        {
+          "productId": "4947",
+          "quantity": 2
         }
       ]
     },
@@ -148,7 +152,7 @@
         },
         {
           "productId": "4947",
-          "quantity": 1
+          "quantity": 2
         }
       ]
     }
