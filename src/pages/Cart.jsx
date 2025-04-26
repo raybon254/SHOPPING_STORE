@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import sneaker1 from '../assets/pics/download (1).jpeg'
-import sneaker2 from '../assets/pics/download (2).jpeg'
-
+import sneaker1 from '../assets/pics/download (1).jpeg';
+import sneaker2 from '../assets/pics/download (2).jpeg';
+import { FaTrash } from 'react-icons/fa';
 
 const Cart = () => {
   // Sample cart data
@@ -68,6 +68,10 @@ const Cart = () => {
     );
   };
 
+  const handleDelete = (id) => {
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
   const handleCheckout = () => {
     alert('Proceeding to checkout...');
     // You can redirect or perform real checkout logic here
@@ -119,10 +123,14 @@ const Cart = () => {
                             +
                           </button>
                         </div>
-                        <p className="card-text">
-                          <strong>Subtotal:</strong>{' '}
-                          Ksh {(item.quantity * item.price).toLocaleString()}
-                        </p>
+                        <div className="d-flex justify-content-between align-items-center">
+                          <p className="card-text mb-0">
+                            <strong>Subtotal:</strong>{' '}
+                            Ksh {(item.quantity * item.price).toLocaleString()}
+                          </p>
+                          <FaTrash size={25} onClick={() => handleDelete(item.id)} className="text-danger" style={{ cursor: 'pointer' }}
+ />
+                        </div>
                       </div>
                     </div>
                   </div>
