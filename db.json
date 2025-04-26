@@ -144,6 +144,10 @@
       "productsId": [
         {
           "productId": "4946",
+          "quantity": 2
+        },
+        {
+          "productId": "4947",
           "quantity": 1
         }
       ]
