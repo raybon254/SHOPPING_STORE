@@ -1,12 +1,86 @@
 import React from "react";
 import {  useFetch } from "../components/ContextFetch";
 import Swal from "sweetalert2";
+import { useUser } from "../pages/UserContext";
+import useCart from "../hooks/useCart";
 // import { set } from "date-fns";
 // import { useState } from "react";
 
 const Products = () => {
 
-    
+      const { loggedInUser, setLoggedInUser } = useUser();
+      const addProductToCart = async (userId, productId) => {
+        try {
+          // 1. Fetch all carts
+          const res = await fetch(`http://localhost:3000/cart`);
+          const allCarts = await res.json();
+      
+          // 2. Find if user's cart already exists
+          const userCart = allCarts.find(cart => cart.id === userId);
+      
+          if (userCart) {
+            // If cart exists: check if product already exists
+            const existingProduct = userCart.productsId.find(
+              (item) => item.productId === productId
+            );
+      
+            let updatedProductsId;
+      
+            if (existingProduct) {
+              // Product exists: increase quantity
+              updatedProductsId = userCart.productsId.map(item => 
+                item.productId === productId 
+                  ? { ...item, quantity: item.quantity + 1 } 
+                  : item
+              );
+            } else {
+              // Product doesn't exist: add new product
+              updatedProductsId = [
+                ...userCart.productsId,
+                { productId: productId, quantity: 1 }
+              ];
+            }
+      
+            // Update cart (PATCH)
+            await fetch(`http://localhost:3000/cart/${userId}`, {
+              method: 'PATCH',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ productsId: updatedProductsId }),
+            });
+      
+            console.log('Cart updated successfully.');
+      
+          } else {
+            // Cart doesn't exist: create a new cart (POST)
+            const newCart = {
+              id: userId,
+              productsId: [
+                {
+                  productId: productId,
+                  quantity: 1,
+                }
+              ]
+            };
+      
+            await fetch(`http://localhost:3000/cart`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(newCart),
+            });
+      
+            console.log('New cart created successfully.');
+          }
+      
+        } catch (error) {
+          console.error('Error adding product to cart:', error);
+        }
+      };
+      
+      
     const handleClick = (product) => {
         Swal.fire({
           title: `${product.name}`,
@@ -23,7 +97,9 @@ const Products = () => {
         //   width: '80%',
         }).then((result) => {
             if(result.isConfirmed){
+                       addProductToCart(loggedInUser.id,product.id)
                 Swal.fire({
+        
                     html:'<p class="fs-6 text-muted">Successfully added to cart</p>'})
             }
             else if(result.isDismissed){
@@ -53,7 +129,7 @@ const Products = () => {
                                             <h5 className="card-title fw-bold">{filtered.name}</h5>
                                             <p className="card-text">{filtered.description}</p>
                                             <p className="card-text fw-bold">Price:{filtered.price}</p>
-                                            <button className="btn btn-primary w-100">Add to Cart</button>
+                                            <button  className="btn btn-primary w-100">Add to Cart</button>
                                         </div>
                                     </div>
                               </div>

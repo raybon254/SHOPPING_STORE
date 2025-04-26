@@ -1,65 +1,60 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import sneaker1 from '../assets/pics/download (1).jpeg';
 import sneaker2 from '../assets/pics/download (2).jpeg';
 import { FaTrash } from 'react-icons/fa';
+import { useUser } from "../pages/UserContext";
 
 const Cart = () => {
-  // Sample cart data
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: 'iPhone 13',
-      price: 95000,
-      quantity: 1,
-      image: sneaker1,
-    },
-    {
-      id: 2,
-      name: 'Samsung Galaxy A14',
-      price: 18000,
-      quantity: 2,
-      image: sneaker2,
-    },
-    {
-      id: 3,
-      name: 'iPhone 13',
-      price: 95000,
-      quantity: 1,
-      image: sneaker1,
-    },
-    {
-      id: 4,
-      name: 'Samsung Galaxy A14',
-      price: 18000,
-      quantity: 2,
-      image: sneaker2,
-    },
-    {
-      id: 5,
-      name: 'iPhone 13',
-      price: 95000,
-      quantity: 1,
-      image: sneaker1,
-    },
-    {
-      id: 6,
-      name: 'Samsung Galaxy A14',
-      price: 18000,
-      quantity: 2,
-      image: sneaker2,
-    },
-  ]);
-
-  const handleIncrease = (id) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-      )
-    );
+    const { loggedInUser, setLoggedInUser } = useUser();
+const [cart, setCart] = useState([]);
+  const API_URL = 'http://localhost:3000/cart';
+const [products,setProducts]=useState([])
+  const getCartItems = async () => {
+    try {
+      const response = await fetch(`${API_URL}/${loggedInUser.id}`);
+      const items = await response.json(); // <- await here
+      setCart(items);
+    } catch (error) {
+      console.error('Error fetching cart items:', error);
+    }
   };
 
+  useEffect(() => {
+    getCartItems(); //
+  }, []); 
+
+  console.log(cart);
+
+console.log('Cart ids',cart.productsId)
+useEffect(() => {
+  const fetchProductDetails = async () => {
+    if (cart.productsId && cart.productsId.length > 0) {
+      try {
+        const productPromises = cart.productsId.map((item) =>
+          fetch(`http://localhost:3000/products/${item.productId}`)
+            .then(res => res.json())
+            .then(product => ({
+              ...product,
+              quantity: item.quantity  
+            }))
+        );
+
+        const productDetails = await Promise.all(productPromises);
+        console.log('Product Details:', productDetails); 
+        setProducts(productDetails);
+      } catch (error) {
+        console.error('Error fetching product details:', error);
+      }
+    }
+  };
+
+  fetchProductDetails();
+}, [cart]);
+
+
+  console.log('Products Items',products)
   const handleDecrease = (id) => {
-    setCartItems((prev) =>
+    setProducts((prev) =>
       prev.map((item) =>
         item.id === id && item.quantity > 1
           ? { ...item, quantity: item.quantity - 1 }
@@ -68,30 +63,149 @@ const Cart = () => {
     );
   };
 
-  const handleDelete = (id) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+
+  const handleQuantityChange = async (userId, productId, action) => {
+    try {
+      // First: fetch the current user's cart
+      const fetchedCart = await fetch('http://localhost:3000/cart');
+      const allCarts = await fetchedCart.json();
+  
+      const userCart = allCarts.find(user => user.id === userId);
+  
+      if (!userCart) {
+        console.error('User cart not found');
+        return;
+      }
+  
+      let updatedProducts = userCart.productsId.map(product => {
+        if (product.productId === productId) {
+          if (action === 'increase') {
+            setCart(prev => ({
+              ...prev,
+              productsId: prev.productsId.map(one => 
+                one.productId === productId
+                  ? { ...one, quantity: one.quantity + 1 }
+                  : one
+              )
+            }));
+            
+            return { ...product, quantity: product.quantity + 1 };
+          } else if (action === 'decrease') {
+            setCart(prev => ({
+              ...prev,
+              productsId: prev.productsId.map(one => 
+                one.productId === productId
+                  ? { ...one, quantity: one.quantity - 1 }
+                  : one
+              )
+            }));
+            
+            return { ...product, quantity: Math.max(product.quantity - 1, 1) };
+          }
+        }
+       
+        return product;
+      });
+  
+      // Optional: if you want to remove product when quantity hits 0
+      updatedProducts = updatedProducts.filter(product => product.quantity > 0);
+  
+      // PATCH the user's cart
+      const response = await fetch(`http://localhost:3000/cart/${userId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ productsId: updatedProducts }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to update cart');
+      }
+  
+      console.log('Cart updated successfully');
+  
+      // OPTIONAL: Update frontend state if you have setProducts
+      setProducts(prevProducts =>
+        prevProducts.map(user => {
+          if (user.id === userId) {
+            return { ...user, productsId: updatedProducts };
+          }
+          return user;
+        })
+      );
+  
+    } catch (error) {
+      console.error('Error updating cart:', error);
+    }
   };
+  
+  
 
   const handleCheckout = () => {
     alert('Proceeding to checkout...');
     // You can redirect or perform real checkout logic here
   };
-
-  const total = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
+  console.log("Cart is ",cart)
+  const totalQuantity = cart.productsId?.reduce((sum, item) => sum + item.quantity, 0);
+  console.log('Total quantity is',totalQuantity)
+  const total = products.reduce(
+    (sum, item) => sum + item.price * totalQuantity,
     0
   );
 
+  const deleteProductFromCart = async (userId, productIdToDelete) => {
+    try {
+      // Fetch the user's cart 
+      const res = await fetch(`http://localhost:3000/cart/${userId}`);
+      const cart = await res.json();
+  
+      if (!cart.productsId) {
+        console.error('No products found for this user.');
+        return;
+      }
+  
+      // Remove the product with matching productId
+      const updatedProductsId = cart.productsId.filter(
+        (item) => item.productId !== productIdToDelete
+      );
+  
+      // PATCH the updated cart
+      const patchRes = await fetch(`http://localhost:3000/cart/${userId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ productsId: updatedProductsId }),
+      });
+  
+      if (!patchRes.ok) {
+        throw new Error('Failed to update cart.');
+      }
+  
+      console.log(`Product ${productIdToDelete} removed successfully.`);
+  
+      // Update local cart state
+      setCart((prev) => ({
+        ...prev,
+        productsId: updatedProductsId,
+      }));
+  
+    } catch (error) {
+      console.error('Error deleting product from cart:', error);
+    }
+  };
+  
   return (
     <div className="container my-4">
       <h3 className="mb-4">Your Cart</h3>
-
-      {cartItems.length === 0 ? (
+      
+      {products.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <>
           <div className="row">
-            {cartItems.map((item) => (
+            {products.map((item) => (
               <div className="col-md-6 mb-3" key={item.id}>
                 <div className="card">
                   <div className="row g-0">
@@ -111,14 +225,14 @@ const Cart = () => {
                         <div className="d-flex align-items-center gap-2 mb-2">
                           <button
                             className="btn btn-outline-secondary btn-sm"
-                            onClick={() => handleDecrease(item.id)}
+                            onClick={() => handleQuantityChange(loggedInUser.id, item.id, 'decrease')}
                           >
                             -
                           </button>
                           <span>{item.quantity}</span>
                           <button
                             className="btn btn-outline-secondary btn-sm"
-                            onClick={() => handleIncrease(item.id)}
+                            onClick={() => handleQuantityChange(loggedInUser.id, item.id, 'increase')}
                           >
                             +
                           </button>
@@ -128,7 +242,7 @@ const Cart = () => {
                             <strong>Subtotal:</strong>{' '}
                             Ksh {(item.quantity * item.price).toLocaleString()}
                           </p>
-                          <FaTrash size={25} onClick={() => handleDelete(item.id)} className="text-danger" style={{ cursor: 'pointer' }}
+                          <FaTrash size={25} onClick={() => deleteProductFromCart(loggedInUser.id, item.id)} className="text-danger" style={{ cursor: 'pointer' }}
  />
                         </div>
                       </div>
@@ -141,6 +255,7 @@ const Cart = () => {
 
           <div className="text-end mt-4">
             <h4>Total: Ksh {total.toLocaleString()}</h4>
+       
             <button className="btn btn-success mt-2" onClick={handleCheckout}>
               Checkout
             </button>
@@ -148,6 +263,7 @@ const Cart = () => {
         </>
       )}
     </div>
+
   );
 };
 
