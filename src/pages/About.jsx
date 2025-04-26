@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card, Accordion, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, Accordion } from 'react-bootstrap';
 
 const About = () => {
   // Product data
@@ -29,7 +29,7 @@ const About = () => {
     },
     {
       question: 'How do we ensure product quality?',
-      answer: 'Every product undergoes precise testing to meet industry standards, ensuring reliability, functionality, and customer satisfaction.',
+      answer: 'Every product undergoes rigorous testing to meet industry standards, ensuring reliability, functionality, and customer satisfaction.',
     },
     {
       question: 'What is our return policy?',
@@ -50,7 +50,7 @@ const About = () => {
       {/* Mission Statement */}
       <section className="mission-section text-center mb-5">
         <h2>About Our Shopping Cart</h2>
-        <p className="mission-description ">
+        <p className="mission-description">
           Our mission is to provide a seamless and delightful shopping experience, offering innovative and high-quality
           electronics that enhance your lifestyle. We strive to make technology accessible, reliable, and affordable for
           everyone.
@@ -80,10 +80,10 @@ const About = () => {
                   src={product.imageUrl}
                   alt={product.title}
                   style={{
-                    height: '300px', 
-                    objectFit: 'contain', 
-                    padding: '10px', 
-                    backgroundColor: '#f8f9fa', 
+                    height: '300px',
+                    objectFit: 'contain',
+                    padding: '10px',
+                    backgroundColor: '#f8f9fa',
                   }}
                   className="img-fluid"
                 />
@@ -114,30 +114,9 @@ const About = () => {
       <section className="contact-section">
         <h2 className="section-title text-center mb-4">Contact Us</h2>
         <Row>
-          <Col md={6} className="mb-4">
-            <h4>Send Us a Message</h4>
-            <Form>
-              <Form.Group className="mb-3" controlId="formName">
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter your name" />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter your email" />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formMessage">
-                <Form.Label>Message</Form.Label>
-                <Form.Control as="textarea" rows={4} placeholder="Your message" />
-              </Form.Group>
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
-            </Form>
-          </Col>
-          <Col md={6} className="mb-4">
-            <h4>Contact Information</h4>
+          <Col md={12} className="mb-4 text-center">
             <p><strong>Email:</strong> support@shoppingcart.com</p>
-            <p><strong>Phone:</strong> 0742009797</p>
+            <p><strong>Phone:</strong> 0723343245</p>
             <p><strong>Address:</strong> Ngong road, Nairobi, Kenya</p>
             <p><strong>Business Hours:</strong> Monday - Friday, 9 AM - 5 PM</p>
           </Col>
