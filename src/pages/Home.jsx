@@ -25,7 +25,7 @@ const Home = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   useEffect(() => {
-    // Hide welcome message after 6 seconds
+    // Hide welcome message after 3 seconds
     const welcomeTimer = setTimeout(() => {
       setShowWelcome(false);
     }, 3000);
@@ -52,7 +52,7 @@ const Home = () => {
             'https://img.freepik.com/premium-vector/abstract-slant-lines-blue-background-gradient_626195-83.jpg?w=1480' : 
             products[slideIndex].img})`,
           minHeight: "500px",
-          backgroundSize: "cover",
+          backgroundSize: "contain",
           backgroundPosition: "center",
           position: "relative",
         }}
@@ -92,6 +92,30 @@ const Home = () => {
           )}
         </div>
       </section>
+{/* Features offered by this store */}
+      <section className="py-5 bg-light">
+  <div className="container">
+    <h2 className="text-center mb-4">Why Shop With Us?</h2>
+    <div className="row">
+      <div className="col-md-4 text-center">
+        <i className="bi bi-truck" style={{ fontSize: "3rem" }}></i>
+        <h5>Fast Delivery</h5>
+        <p>Get your products delivered in no time with our express service.</p>
+      </div>
+      <div className="col-md-4 text-center">
+        <i className="bi bi-shield-check" style={{ fontSize: "3rem" }}></i>
+        <h5>Secure Payments</h5>
+        <p>Shop confidently with secure checkout and multiple payment options.</p>
+      </div>
+      <div className="col-md-4 text-center">
+        <i className="bi bi-star" style={{ fontSize: "3rem" }}></i>
+        <h5>Top Quality</h5>
+        <p>Only the best products from trusted brands and sellers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
       
 
       {/* Cards Section */}
@@ -104,13 +128,13 @@ const Home = () => {
                   src={card.img}
                   className="card-img-top rounded-top-4"
                   alt={card.title}
-                  style={{ height: "220px", objectFit: "cover" }}
+                  style={{ height: "220px", objectFit: "contain" }}
                 />
                 <div className="card-body">
                   <h5 className="card-title">{card.title}</h5>
-                  <p className="card-text">{card.text}</p>
-            
-                  <Link as={Link} to="/products" >  <button className="btn btn-outline-primary w-100">
+                  <p className="card-text ">{card.text}</p>
+        
+                  <Link as={Link} to="/products" >  <button className="btn btn-outline-primary w-100 mt-auto">
                   🛒 Shop Now
                   </button>  </Link>
                 </div>
@@ -120,7 +144,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Animations */}
+      {/*my home styles*/}
       <style>
         {`
           @keyframes slideFromLeft {
