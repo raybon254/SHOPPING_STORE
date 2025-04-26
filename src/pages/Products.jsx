@@ -73,7 +73,6 @@ const Products = () => {
           .card-hover:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            // background-color: silver;
           }`}
     </style>
   </div>
