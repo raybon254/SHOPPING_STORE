@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 const products = [
   {
     title: "iPhone 14 Pro Max",
-    text: "Premium iPhone eith 256GB storage ,A16chip and Pro Motion display",
+    text: "Premium iPhone with 256GB storage ,A16chip and Pro Motion display",
     img: "https://th.bing.com/th/id/OIP.xveu0Wpg1mrvNAQsRLijLAHaE8?w=252&h=180&c=7&r=0&o=5&cb=iwc1&pid=1.7",
   },
   {
