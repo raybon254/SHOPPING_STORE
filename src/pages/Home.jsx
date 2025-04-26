@@ -130,10 +130,10 @@ const Home = () => {
                   alt={card.title}
                   style={{ height: "220px", objectFit: "contain" }}
                 />
-                <div className="card-body">
+                <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{card.title}</h5>
                   <p className="card-text ">{card.text}</p>
-        
+            
                   <Link as={Link} to="/products" >  <button className="btn btn-outline-primary w-100 mt-auto">
                   🛒 Shop Now
                   </button>  </Link>
