@@ -38,12 +38,12 @@ const Products = () => {
 
   return (
     <div className="container py-5 ">
-        <h1 className="mb-4 text-center display-3 fw-medium">Our Products</h1>
+        <h1 className="mb-4 text-center fw-medium text-secondary">Our Products</h1>
 
     {/* diplay row per category from fetch */}
         {
                 <div>                  
-                    <div className="row gy-4">
+                    <div className="row gy-4 mt-4">
                         {
                            product.map((filtered,index) => (
                                 <div className="col-sm-6 col-md-4 col-lg-3" key={index}>
