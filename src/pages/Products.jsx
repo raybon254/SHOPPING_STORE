@@ -40,7 +40,7 @@ const Products = () => {
 
   return (
     <div className="container py-5 ">
-        <h1 className="mb-4 text-center display-3 fw-bold">Our Products</h1>
+        <h1 className="mb-4 text-center fw-medium ">Our Products</h1>
 
     {/* diplay row per category from fetch */}
         {
