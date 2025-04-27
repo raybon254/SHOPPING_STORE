@@ -19,7 +19,7 @@ const CreateUserPage = () => {
 
     try {
       // First, fetch existing users
-      const usersResponse = await fetch("http://localhost:3000/users");
+      const usersResponse = await fetch("https://json-server-1-c3fk.onrender.com/users");
       const existingUsers = await usersResponse.json();
 
       // Check if email already exists
@@ -42,7 +42,7 @@ const CreateUserPage = () => {
         type: type,
       };
 
-      const createResponse = await fetch("http://localhost:3000/users", {
+      const createResponse = await fetch("https://json-server-1-c3fk.onrender.com/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

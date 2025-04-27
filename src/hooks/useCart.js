@@ -4,7 +4,7 @@ import axios from 'axios';
 function useCart() {
   const [cart, setCart] = useState([]);
   const [error, setError] = useState('');
-  const API_URL = "http://localhost:3000/cart";
+  const API_URL = "https://json-server-1-c3fk.onrender.com";
 
   const fetchCart = (userId) => {
     axios.get(`${API_URL}/${userId}`)

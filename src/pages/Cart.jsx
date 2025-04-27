@@ -8,7 +8,7 @@ import { useUser } from "../pages/UserContext";
 const Cart = () => {
     const { loggedInUser, setLoggedInUser } = useUser();
 const [cart, setCart] = useState([]);
-  const API_URL = 'http://localhost:3000/cart';
+  const API_URL = 'https://json-server-1-c3fk.onrender.com/cart';
 const [products,setProducts]=useState([])
   const getCartItems = async () => {
     try {
@@ -32,7 +32,7 @@ useEffect(() => {
     if (cart.productsId && cart.productsId.length > 0) {
       try {
         const productPromises = cart.productsId.map((item) =>
-          fetch(`http://localhost:3000/products/${item.productId}`)
+          fetch(`https://json-server-1-c3fk.onrender.com/products/${item.productId}`)
             .then(res => res.json())
             .then(product => ({
               ...product,
@@ -60,7 +60,7 @@ useEffect(() => {
   const handleQuantityChange = async (userId, productId, action) => {
     try {
       // Fetch the current user's cart
-      const fetchedCart = await fetch('http://localhost:3000/cart');
+      const fetchedCart = await fetch('https://json-server-1-c3fk.onrender.com/cart');
       const allCarts = await fetchedCart.json();
   
       const userCart = allCarts.find(user => user.id === userId);
@@ -104,7 +104,7 @@ useEffect(() => {
       updatedProducts = updatedProducts.filter(product => product.quantity > 0);
   
       // Update the backend (db.json)
-      const response = await fetch(`http://localhost:3000/cart/${userId}`, {
+      const response = await fetch(`https://json-server-1-c3fk.onrender.com/cart/${userId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ useEffect(() => {
   const deleteProductFromCart = async (userId, productIdToDelete) => {
     try {
       // Fetch the user's cart 
-      const res = await fetch(`http://localhost:3000/cart/${userId}`);
+      const res = await fetch(`https://json-server-1-c3fk.onrender.com/cart/${userId}`);
       const cart = await res.json();
   
       if (!cart.productsId) {
@@ -165,7 +165,7 @@ useEffect(() => {
       );
   
       // PATCH the updated cart
-      const patchRes = await fetch(`http://localhost:3000/cart/${userId}`, {
+      const patchRes = await fetch(`https://json-server-1-c3fk.onrender.com/cart/${userId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

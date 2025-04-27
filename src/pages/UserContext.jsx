@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext } from 'react';
 import axios from 'axios';
 const UserContext = createContext();
-const API_URL='http://localhost:3000/users'
+const API_URL='https://json-server-1-c3fk.onrender.com/users'
 
 export const getUsers = async () => {
     try {

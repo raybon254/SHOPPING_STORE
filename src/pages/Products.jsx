@@ -11,7 +11,7 @@ const Products = () => {
   const addProductToCart = async (userId, productId) => {
     try {
       // 1. Fetch all carts
-      const res = await fetch(`http://localhost:3000/cart`);
+      const res = await fetch(`https://json-server-1-c3fk.onrender.com/cart`);
       const allCarts = await res.json();
 
       // 2. Find if user's cart already exists
@@ -41,7 +41,7 @@ const Products = () => {
         }
 
         // Update cart (PATCH)
-        await fetch(`http://localhost:3000/cart/${userId}`, {
+        await fetch(`https://json-server-1-c3fk.onrender.com/cart/${userId}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -62,7 +62,7 @@ const Products = () => {
           ],
         };
 
-        await fetch(`http://localhost:3000/cart`, {
+        await fetch(`https://json-server-1-c3fk.onrender.com/cart`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -123,7 +123,7 @@ const Products = () => {
   
     if (result.isConfirmed) {
       try {
-        const response = await fetch(`http://localhost:3000/products/${id}`, {
+        const response = await fetch(`https://json-server-1-c3fk.onrender.com/products/${id}`, {
           method: "DELETE",
         });
   
