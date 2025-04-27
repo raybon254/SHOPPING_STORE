@@ -108,16 +108,12 @@
       "id": "1",
       "productsId": [
         {
-          "productId": "4950",
-          "quantity": 3
-        },
-        {
-          "productId": "4951",
-          "quantity": 2
-        },
-        {
           "productId": "4947",
           "quantity": 2
+        },
+        {
+          "productId": "4948",
+          "quantity": 1
         }
       ]
     },
@@ -148,7 +144,7 @@
       "productsId": [
         {
           "productId": "4946",
-          "quantity": 2
+          "quantity": 1
         },
         {
           "productId": "4947",
