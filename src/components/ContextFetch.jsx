@@ -4,10 +4,11 @@ import swal from "sweetalert";
 
 export const FetchContext = createContext();
 
-// Data Fetch
+// Data Fetch products
 export const Fetch = ({children}) => {
 
     const [ product, setproduct] = useState([])
+    const [ Users, setUsers] = useState([])
     const [ isloading, setisloading] = useState(true)
 
     const fetchData = async() => {
@@ -25,13 +26,30 @@ export const Fetch = ({children}) => {
     }
 };
 
+// Data Fetch users
+const fetchUsers = async() => {
+    //fetch data
+try{
+   const res = await fetch("http://localhost:3000/users");
+   const user = await res.json();
+       setUsers(user);
+}
+catch(error){
+   swal("Error fetching users", error.message)
+}
+finally{
+   setisloading(false)
+}
+};
+
 useEffect(() => {
     fetchData();
+    fetchUsers();
 }, [])
     if(isloading) return <p>Loading...</p>
 
     return(
-        <FetchContext.Provider value={{ product }}>
+        <FetchContext.Provider value={{ product, Users}}>
             {children}
         </FetchContext.Provider>
 
