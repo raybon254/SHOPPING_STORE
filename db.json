@@ -224,7 +224,11 @@
       "productsId": [
         {
           "productId": "4947",
-          "quantity": 3
+          "quantity": 4
+        },
+        {
+          "productId": "4946",
+          "quantity": 1
         }
       ]
     },
