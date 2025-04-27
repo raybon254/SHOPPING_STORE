@@ -66,7 +66,7 @@ useEffect(() => {
 
   const handleQuantityChange = async (userId, productId, action) => {
     try {
-      // First: fetch the current user's cart
+      // Fetching the current user's cart
       const fetchedCart = await fetch('http://localhost:3000/cart');
       const allCarts = await fetchedCart.json();
   
@@ -77,40 +77,32 @@ useEffect(() => {
         return;
       }
   
-      let updatedProducts = userCart.productsId.map(product => {
+      // Updates products with the new quantity, ensuring minimum 1
+      const updatedProducts = userCart.productsId.map(product => {
         if (product.productId === productId) {
+          let newQuantity = product.quantity;
+  
           if (action === 'increase') {
-            setCart(prev => ({
-              ...prev,
-              productsId: prev.productsId.map(one => 
-                one.productId === productId
-                  ? { ...one, quantity: one.quantity + 1 }
-                  : one
-              )
-            }));
-            
-            return { ...product, quantity: product.quantity + 1 };
+            newQuantity += 1;
           } else if (action === 'decrease') {
-            setCart(prev => ({
-              ...prev,
-              productsId: prev.productsId.map(one => 
-                one.productId === productId
-                  ? { ...one, quantity: one.quantity - 1 }
-                  : one
-              )
-            }));
-            
-            return { ...product, quantity: Math.max(product.quantity - 1, 1) };
+            newQuantity = Math.max(product.quantity - 1, 1); // not below 1
           }
+  
+          // Updates local cart state immediately
+          setCart(prev => ({
+            ...prev,
+            productsId: prev.productsId.map(one =>
+              one.productId === productId
+                ? { ...one, quantity: newQuantity }
+                : one
+            )
+          }));
+  
+          return { ...product, quantity: newQuantity };
         }
-       
         return product;
       });
   
-      // Optional: if you want to remove product when quantity hits 0
-      updatedProducts = updatedProducts.filter(product => product.quantity > 0);
-  
-      // PATCH the user's cart
       const response = await fetch(`http://localhost:3000/cart/${userId}`, {
         method: 'PATCH',
         headers: {
@@ -141,10 +133,11 @@ useEffect(() => {
   };
   
   
+  
 
   const handleCheckout = () => {
     alert('Proceeding to checkout...');
-    // You can redirect or perform real checkout logic here
+
   };
   console.log("Cart is ",cart)
   const totalQuantity = cart.productsId?.reduce((sum, item) => sum + item.quantity, 0);
@@ -165,7 +158,7 @@ useEffect(() => {
         return;
       }
   
-      // Remove the product with matching productId
+      // Removing the product with matching productId
       const updatedProductsId = cart.productsId.filter(
         (item) => item.productId !== productIdToDelete
       );
@@ -195,6 +188,10 @@ useEffect(() => {
       console.error('Error deleting product from cart:', error);
     }
   };
+
+  const totalPrice = products
+  .reduce((acc, one) => acc + (one.price * one.quantity), 0);
+
   
   return (
     <div className="container my-4">
@@ -242,6 +239,7 @@ useEffect(() => {
                             <strong>Subtotal:</strong>{' '}
                             Ksh {(item.quantity * item.price).toLocaleString()}
                           </p>
+                          <p></p>
                           <FaTrash size={25} onClick={() => deleteProductFromCart(loggedInUser.id, item.id)} className="text-danger" style={{ cursor: 'pointer' }}
  />
                         </div>
@@ -254,7 +252,7 @@ useEffect(() => {
           </div>
 
           <div className="text-end mt-4">
-            <h4>Total: Ksh {total.toLocaleString()}</h4>
+            <h4>Total: Ksh {totalPrice.toLocaleString()}</h4>
        
             <button className="btn btn-success mt-2" onClick={handleCheckout}>
               Checkout
