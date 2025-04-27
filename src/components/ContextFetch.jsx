@@ -45,11 +45,12 @@ finally{
 useEffect(() => {
     fetchData();
     fetchUsers();
-}, [])
+}, []);
+
     if(isloading) return <p>Loading...</p>
 
     return(
-        <FetchContext.Provider value={{ product, Users}}>
+        <FetchContext.Provider value={{ product,setproduct, Users, fetchData}}>
             {children}
         </FetchContext.Provider>
 
