@@ -1,12 +1,70 @@
-# React + Vite
+# Shopping Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek and user-friendly online store showcasing a variety of phone products. Browse our selection, add your desired items to the cart, and proceed with your purchase at your convenience.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Product Page:** Explore all the amazing phone products available in our store with detailed descriptions and images.
+* **About Page:** Learn more about our mission, values, and the team behind the Shopping Store.
+* **Shopping Cart:** Keep track of all the items you've selected. Your cart is unique to your user ID, ensuring your selections are saved.
+* **Admin Page:** (For administrators) Easily add new products to the store, keeping our inventory up-to-date.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project is built using the following technologies:
+
+* **React:** A JavaScript library for building user interfaces.
+* **JavaScript:** The primary programming language for front-end logic.
+* **HTML:** The standard markup language for creating web pages.
+* **CSS:** Used for styling the look and feel of the application.
+* **Bootstrap:** A popular CSS framework for responsive and mobile-first design.
+
+## ⚙️ Installation
+
+To get the Shopping Store up and running on your local machine, follow these simple steps:
+
+1.  **Prerequisites:** Ensure you have Node Package Manager (npm) installed on your system. You can download it from [https://nodejs.org/](https://nodejs.org/).
+
+2.  **Clone the Repository:** 
+    ```bash
+    git clone https://github.com/LARRYKIPKURUI/Group-3-Shopping-Cart.git
+    cd shopping-store
+    ```
+
+3.  **Install Dependencies:** Navigate to the project directory in your terminal and run:
+    ```bash
+    npm install
+    ```
+    This command will install all the necessary packages and libraries listed in the `package.json` file.
+
+## 🚀 Usage
+
+To run the Shopping Store in development mode, follow these instructions:
+
+1.  **Start the Development Server:** In your project directory, run the following command to start the React development server:
+    ```bash
+    npm run dev
+    ```
+    This will typically start the front-end application on a local development server.
+
+2.  **Start the Mock Backend:** Open a new terminal window and navigate to the project directory again. Then, run the following command to start the JSON Server, which serves as a mock backend for this project:
+    ```bash
+    json-server --watch db.json
+    ```
+    This command will start a simple REST API based on the data in the `db.json` file.
+
+3.  **Open in Your Browser:** Once both servers are running, you can open your web browser and navigate to the address provided by the React development server (usually `http://localhost:3000` or a similar address). You should now be able to see and interact with the Shopping Store website.
+
+## 🤝 Contributing
+
+We appreciate contributions from the community! The following individuals are currently active contributors to this project:
+
+* Larry
+* Kelvin
+* Mike
+* Ray
+* Liam
+
+## 📞 Contact
+
+Feel free to connect with us through our social media profiles available on our GitHub accounts. We're always happy to hear from you!
