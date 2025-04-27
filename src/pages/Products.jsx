@@ -131,23 +131,24 @@ const Products = () => {
           throw new Error("Failed to delete");
         }
   
-        fetchData();
-        Swal.fire({
+        await fetchData(); // <-- await if fetchData is async
+        await Swal.fire({
           title: "Deleted!",
           text: "Product has been deleted.",
           icon: "success",
           confirmButtonColor: "green",
         });
       } catch (error) {
-        Swal.fire({
+        await Swal.fire({
           title: "Error",
-          text: "Error deleting product",
+          text: error.message || "Error deleting product",
           icon: "error",
           confirmButtonColor: "red",
         });
       }
     }
   };
+  
   
   return (
     <div className="container py-5 ">
@@ -186,11 +187,24 @@ const Products = () => {
              
                 </div>
                 {loggedInUser.type == "user" ? (
-                      <button className="btn btn-primary w-100 mt-auto">
-                        Add to Cart
-                      </button>
+                      <button 
+                      className="btn btn-primary w-100 mt-auto"
+                      onClick={(e) => {
+                        e.stopPropagation(); // Stop bubbling to card
+                        addProductToCart(loggedInUser.id, filtered.id);
+                        Swal.fire({
+                          title: "Success",
+                          text: "Product added successfully",
+                          icon: "success",
+                          confirmButtonColor: "green",
+                        });
+                      }}
+                    >
+                      Add to Cart
+                    </button>
+                    
                     ) : (
-                      <button onClick={()=>deleteProduct(filtered.id)} className="btn btn-danger w-100">
+                      <button onClick={(e)=>{ e.stopPropagation(); deleteProduct(filtered.id)}} className="btn btn-danger w-100">
                        Delete
                       </button>
                     )}
