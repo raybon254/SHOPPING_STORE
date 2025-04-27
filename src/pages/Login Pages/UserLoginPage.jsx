@@ -101,7 +101,7 @@ const UserLoginPage = () => {
       <div className="d-flex justify-content-center mb-4">
         <Link to="/admin-login">
           <button className="btn btn-success w-20 mt-2 mx-4">
-            Admin Login hhh
+            Admin Login 
           </button>
         </Link>
         {/* Link to create an account */}
