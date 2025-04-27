@@ -120,17 +120,7 @@
       "password": "Ndunda123",
       "type": "user"
     },
-    {
-      "id": "0486",
-      "name": "jay",
-      "email": "jay@gmail.com",
-      "password": "jay254",
-      "id": "4486",
-      "name": "larry",
-      "email": "larrykip@gmail.com",
-      "password": "Larry123",
-      "type": "user"
-    },
+    
     {
       "id": "2610",
       "name": "",
@@ -212,26 +202,7 @@
           "quantity": 2
         }
       ]
-    },
-    {
-      "id": "0db6",
-      "productsId": [
-        {
-          "productId": "1d33",
-          "quantity": 5
-        },
-        {
-          "productId": "2a40",
-          "quantity": 1
-        }
-      ],
-      "id": "4486",
-      "productsId": [
-        {
-          "productId": "4946",
-          "quantity": 1
-        }
-      ]
     }
+    
   ]
 }
