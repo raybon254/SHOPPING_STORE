@@ -103,10 +103,10 @@
       "type": "user"
     },
     {
-      "id": "ec0a",
-      "name": "Larry",
-      "email": "larry@gmail.com",
-      "password": "larry123",
+      "id": "4486",
+      "name": "larry",
+      "email": "larrykip@gmail.com",
+      "password": "Larry123",
       "type": "user"
     }
   ],
@@ -162,10 +162,6 @@
           "quantity": 2
         }
       ]
-    },
-    {
-      "id": "ec0a",
-      "productsId": []
     }
   ]
 }
