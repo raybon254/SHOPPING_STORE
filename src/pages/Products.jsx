@@ -100,7 +100,11 @@ const Products = () => {
             if(result.isConfirmed){
                        addProductToCart(loggedInUser.id,product.id)
                 Swal.fire({
-                    html:'<p class="fs-6 text-muted">Successfully added to cart</p>'})
+                  title: 'Success',
+                  text: 'Product added successfully',
+                  icon: 'success',
+                  confirmButtonColor: 'green'
+                    })
             }
             // else if(result.isDismissed){
             //     Swal.fire({

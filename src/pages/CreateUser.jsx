@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const CreateUserPage = () => {
   const [name, setName] = useState('');
@@ -22,16 +23,21 @@ const CreateUserPage = () => {
       // Check if email already exists
       const emailExists = existingUsers.some(user => user.email === email);
       if (emailExists) {
-        alert('Email already exists. Please use a different email.');
+        Swal.fire({
+          title: 'Email already exists',
+          text: 'Please use a different Email',
+          icon: 'warning',
+          confirmButtonColor: 'red'
+        });
         return;
       }
   
       // If email is unique, create the new user
       const newUser = {
-        name,
-        email,
-        password,
-        type,
+        name:name,
+        email:email,
+        password:password,
+        type: type
       };
   
       const createResponse = await fetch('http://localhost:3000/users', {
@@ -46,17 +52,22 @@ const CreateUserPage = () => {
         throw new Error('Failed to create user');
       }
   
-      alert('User created successfully!');
+      Swal.fire('Success','User created successfully!','success');
       navigate('/user-login'); // navigate sign in
     } catch (error) {
       console.error('Error creating user:', error);
-      alert('Something went wrong while creating the user.');
+      Swal.fire({
+        title: 'Ooops..',
+        text: 'Something went wrong!',
+        icon: 'Warning'
+      });
     }
   };
   
 
   return (
     <div className="container mt-5">
+       <div className="card p-4 shadow-sm mx-auto" style={{ maxWidth: '400px' }}>
       <h1 className="text-center mb-4">Create New User</h1>
       <div className="mb-3">
         <input
@@ -86,17 +97,19 @@ const CreateUserPage = () => {
         />
       </div>
       <div className="mb-3">
-        <select
+        {/* <select
           className="form-control"
           value={type}
           onChange={(e) => setType(e.target.value)}
         >
           <option value="user">User</option>
-        </select>
+          <option value="admin">Admin</option>
+        </select> */}
       </div>
       <button className="btn btn-success" onClick={handleCreateUser}>
         Create User
       </button>
+    </div>
     </div>
   );
 };
