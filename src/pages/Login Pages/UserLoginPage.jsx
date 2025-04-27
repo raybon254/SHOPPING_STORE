@@ -53,21 +53,21 @@ const UserLoginPage = () => {
   };
 
   return (
-    <div className="container mt-5  ">
-      <h1 className="text-center mb-4 d-flex align-items-center justify-content-center">
-        {" "}
-        <img
-          src={cartIcon}
-          width="32"
-          height="32"
-          className="d-inline-block align-top mx-2"
-          alt="logo"
-        />
-        <span className="fw-medium fw-bold">
-          Shopping<span className="text-success mx-1">Store</span>
-        </span>
-      </h1>
-
+    <div className="container mt-5 ">
+       <h1 className="text-center mb-4 d-flex align-items-center justify-content-center">
+                          {" "}
+                          <img
+                            src={cartIcon}
+                            width="32"
+                            height="37"
+                            className="d-inline-block align-top mx-2"
+                            alt="logo"
+                          />
+                          <span className="fw-bold ">
+                            Shopping<span className="text-success mx-1">Store</span>
+                          </span>
+                        </h1>
+     
       {/* User Login Card */}
       <div
         className="card p-4 shadow-sm mx-auto mb-3"

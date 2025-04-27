@@ -8,10 +8,10 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-      <PostData>
-           <Fetch>
-                <App /> 
-           </Fetch>
-      </PostData>
+      <Fetch>
+          <PostData>
+               <App /> 
+          </PostData>
+      </Fetch>
   </StrictMode>,
 )
