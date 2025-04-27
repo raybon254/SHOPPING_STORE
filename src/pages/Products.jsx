@@ -110,21 +110,45 @@ const Products = () => {
   const { product, fetchData } = useFetch();
   // const categories = Array.from(new Set(product.map(((d)=> d.category))))
   // const [ display, setdisplay ] = useState([])
-const deleteProduct =async(id)=>{
-  try {
-
-fetchData()
-Swal.fire({
-  title: "Error",
-  text: "Error deleting product",
-  icon: "error",
-  confirmButtonColor: "red",
-});
-}
-  catch (error){
-   console.log(error)
-  }
-}
+  const deleteProduct = async (id) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to undo this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "red",
+      cancelButtonColor: "gray",
+      confirmButtonText: "Yes, delete it!",
+    });
+  
+    if (result.isConfirmed) {
+      try {
+        const response = await fetch(`http://localhost:3000/products/${id}`, {
+          method: "DELETE",
+        });
+  
+        if (!response.ok) {
+          throw new Error("Failed to delete");
+        }
+  
+        fetchData();
+        Swal.fire({
+          title: "Deleted!",
+          text: "Product has been deleted.",
+          icon: "success",
+          confirmButtonColor: "green",
+        });
+      } catch (error) {
+        Swal.fire({
+          title: "Error",
+          text: "Error deleting product",
+          icon: "error",
+          confirmButtonColor: "red",
+        });
+      }
+    }
+  };
+  
   return (
     <div className="container py-5 ">
       <h1 className="mb-4 text-center fw-medium ">Our Products</h1>
@@ -135,10 +159,16 @@ Swal.fire({
           <div className="row gy-4 mt-4">
             {product.map((filtered, index) => (
               <div className="col-sm-6 col-md-4 col-lg-3" key={index}>
-                <div
-                  className="card h-100 card-hover"
-                 
-                >
+                <div   className="card h-100 card-hover"> 
+            <div
+
+  onClick={() => {
+   
+      handleClick(filtered);
+    
+  }}
+>
+  
                   <img
                     src={filtered.image}
                     className="card-img-top"
@@ -151,7 +181,11 @@ Swal.fire({
                       {filtered.description}
                     </p>
                     <p className="card-text fw-bold">Price:{filtered.price}</p>
-                    {loggedInUser.type == "user" ? (
+                   
+                  </div>
+             
+                </div>
+                {loggedInUser.type == "user" ? (
                       <button className="btn btn-primary w-100">
                         Add to Cart
                       </button>
@@ -160,7 +194,6 @@ Swal.fire({
                        Delete
                       </button>
                     )}
-                  </div>
                 </div>
               </div>
             ))}
