@@ -71,15 +71,6 @@
       "brand": "Nokia",
       "category": "Electronic & Gadgets",
       "image": "https://www.phoneplacekenya.com/wp-content/uploads/2020/03/Nokia-8.3-5G.jpg"
-    },
-    {
-      "id": "be35",
-      "name": "Huawei p60 pro",
-      "description": "HUawei without google",
-      "price": 15000,
-      "brand": "Huawei",
-      "category": "Electronic & Gadgets",
-      "image": "https://www.dxomark.com/wp-content/uploads/medias/post-147160/Huawei-P60-Pro_featured-image-packshot-review-Recovered.jpg"
     }
   ],
   "users": [
@@ -131,8 +122,8 @@
       "id": "1",
       "productsId": [
         {
-          "productId": "4947",
-          "quantity": 3
+          "productId": "4946",
+          "quantity": 1
         }
       ]
     },
