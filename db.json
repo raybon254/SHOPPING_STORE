@@ -71,15 +71,6 @@
       "brand": "Nokia",
       "category": "Electronic & Gadgets",
       "image": "https://www.phoneplacekenya.com/wp-content/uploads/2020/03/Nokia-8.3-5G.jpg"
-    },
-    {
-      "id": "2a40",
-      "name": "Tecno",
-      "description": "kabambe",
-      "price": 1500,
-      "brand": "tecno",
-      "category": "Electronic & Gadgets",
-      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/18/4329103/1.jpg?3075"
     }
   ],
   "users": [
@@ -131,8 +122,8 @@
       "id": "1",
       "productsId": [
         {
-          "productId": "4947",
-          "quantity": 3
+          "productId": "4946",
+          "quantity": 1
         }
       ]
     },
