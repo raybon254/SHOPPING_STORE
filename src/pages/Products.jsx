@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useFetch } from "../components/ContextFetch";
 import Swal from "sweetalert2";
 import { useUser } from "../pages/UserContext";
@@ -159,15 +159,15 @@ const Products = () => {
           <div className="row gy-4 mt-4">
             {product.map((filtered, index) => (
               <div className="col-sm-6 col-md-4 col-lg-3" key={index}>
-                <div   className="card h-100 card-hover"> 
+                <div   className="card h-100 card-hover " onClick={() => handleClick(filtered)}> 
             <div
 
-  onClick={() => {
-   
-      handleClick(filtered);
-    
-  }}
->
+              onClick={() => {
+              
+                  handleClick(filtered);
+                
+              }}
+            >
   
                   <img
                     src={filtered.image}
@@ -175,7 +175,7 @@ const Products = () => {
                     style={{ height: "200px", objectFit: "cover" }}
                     alt="Image"
                   />
-                  <div className="card-body d-flex flex-column">
+                  <div className="card-body d-flex flex-column ">
                     <h5 className="card-title fw-bold">{filtered.name}</h5>
                     <p className="card-text text-truncate ">
                       {filtered.description}
@@ -186,7 +186,7 @@ const Products = () => {
              
                 </div>
                 {loggedInUser.type == "user" ? (
-                      <button className="btn btn-primary w-100">
+                      <button className="btn btn-primary w-100 mt-auto">
                         Add to Cart
                       </button>
                     ) : (

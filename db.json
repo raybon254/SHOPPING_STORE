@@ -73,13 +73,13 @@
       "image": "https://www.phoneplacekenya.com/wp-content/uploads/2020/03/Nokia-8.3-5G.jpg"
     },
     {
-      "id": "2a40",
-      "name": "Tecno",
-      "description": "kabambe",
-      "price": 1500,
-      "brand": "tecno",
+      "id": "be35",
+      "name": "Huawei p60 pro",
+      "description": "HUawei without google",
+      "price": 15000,
+      "brand": "Huawei",
       "category": "Electronic & Gadgets",
-      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/18/4329103/1.jpg?3075"
+      "image": "https://www.dxomark.com/wp-content/uploads/medias/post-147160/Huawei-P60-Pro_featured-image-packshot-review-Recovered.jpg"
     }
   ],
   "users": [
@@ -176,6 +176,19 @@
         {
           "productId": "4952",
           "quantity": 3
+        }
+      ]
+    },
+    {
+      "id": "4486",
+      "productsId": []
+    },
+    {
+      "id": "69cd",
+      "productsId": [
+        {
+          "productId": "4950",
+          "quantity": 1
         }
       ]
     }

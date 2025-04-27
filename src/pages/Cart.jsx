@@ -137,7 +137,13 @@ useEffect(() => {
   
 
   const handleCheckout = () => {
-    alert('Proceeding to checkout...');
+    Swal.fire({
+              title: "Checkout!",
+              text: "Product is ready for checkout",
+              icon: "success",
+              confirmButtonText: "Confirmed",
+              confirmButtonColor: "green",
+            });
 
   };
   console.log("Cart is ",cart)
