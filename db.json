@@ -71,33 +71,6 @@
       "brand": "Nokia",
       "category": "Electronic & Gadgets",
       "image": "https://www.phoneplacekenya.com/wp-content/uploads/2020/03/Nokia-8.3-5G.jpg"
-    },
-    {
-      "id": "2a40",
-      "name": "Tecno",
-      "description": "kabambe",
-      "price": 1500,
-      "brand": "tecno",
-      "category": "Electronic & Gadgets",
-      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/18/4329103/1.jpg?3075"
-    },
-    {
-      "id": "1d33",
-      "name": "nokia",
-      "description": "kabambe",
-      "price": 1599,
-      "brand": "nokia",
-      "category": "Electronic & Gadgets",
-      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/18/4329103/1.jpg?3075"
-    },
-    {
-      "id": "137c",
-      "name": "Neon Ray",
-      "description": "touch",
-      "price": 4300,
-      "brand": "neonray",
-      "category": "Electronic & Gadgets",
-      "image": "https://www.dixons.co.ke/wp-content/uploads/2022/07/1-2.jpg"
     }
   ],
   "users": [
@@ -137,30 +110,10 @@
       "type": "user"
     },
     {
-      "id": "2610",
-      "name": "",
-      "email": "",
-      "password": "",
-      "type": ""
-    },
-    {
-      "id": "386a",
-      "name": "jy",
-      "email": "jy@gmail.com",
-      "password": "jy254"
-    },
-    {
-      "id": "0db6",
-      "name": "Admin",
-      "email": "admin@gmail.com",
-      "password": "admin123",
-      "type": "admin"
-    },
-    {
-      "id": "706b",
-      "name": "agnes",
-      "email": "agnes@gmail.com",
-      "password": "agnes123",
+      "id": "69cd",
+      "name": "larry",
+      "email": "larry@gmail.com",
+      "password": "larry123",
       "type": "user"
     }
   ],
@@ -219,20 +172,7 @@
     },
     {
       "id": "4486",
-      "productsId": [
-        {
-          "productId": "1d33",
-          "quantity": 1
-        },
-        {
-          "productId": "2a40",
-          "quantity": 1
-        },
-        {
-          "productId": "4947",
-          "quantity": 1
-        }
-      ]
+      "productsId": []
     },
     {
       "id": "69cd",
