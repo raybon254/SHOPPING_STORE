@@ -101,6 +101,13 @@
       "email": "kel@gmail.com",
       "password": "Ndunda123",
       "type": "user"
+    },
+    {
+      "id": "ec0a",
+      "name": "Larry",
+      "email": "larry@gmail.com",
+      "password": "larry123",
+      "type": "user"
     }
   ],
   "cart": [
@@ -155,6 +162,10 @@
           "quantity": 2
         }
       ]
+    },
+    {
+      "id": "ec0a",
+      "productsId": []
     }
   ]
 }
