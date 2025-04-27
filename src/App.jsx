@@ -10,6 +10,7 @@ import routes from "./routes";
 import UserLoginPage from "./pages/Login Pages/UserLoginPage";
 import AdminLoginPage from "./pages/Login Pages/AdminLoginPage";
 import CreateUserPage from "./pages/CreateUser";
+import AddProduct from "./pages/AddProduct";
 
 const MainContent = () => {
   const { loggedInUser } = useUser();
@@ -27,6 +28,7 @@ const MainContent = () => {
         // If NOT logged in, ONLY allow login pages
         <>
           <Route path="/user-login" element={<UserLoginPage />} />
+          <Route path="/create-product" element={<AddProduct/>} />  
           <Route path="/admin-login" element={<AdminLoginPage />} />
           <Route path="/create-user" element={<CreateUserPage />} />
           {/* Any other path redirects to user-login */}

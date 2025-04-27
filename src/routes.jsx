@@ -2,7 +2,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
 import Products from "./pages/Products"
-import AddProduct from "./pages/admin";
+import AddProduct from "./pages/AddProduct";
 import ErrorPage from "./pages/ErrorPage";
 import UserLoginPage from "./pages/Login Pages/UserLoginPage";
 import AdminLoginPage from "./pages/Login Pages/AdminLoginPage";
@@ -17,6 +17,7 @@ const routes = [
   { path: "/user-login", element: <UserLoginPage /> },
   { path: "/admin-login", element: <AdminLoginPage /> },
   { path: "/create-user", element: <CreateUserPage /> },
+  { path: "/create-product", element: <AddProduct /> },
   { path: "*", element: <ErrorPage /> },
 ];
 
