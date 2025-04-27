@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import cartIcon from '../assets/cart.png';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const CreateUserPage = () => {
@@ -67,6 +69,19 @@ const CreateUserPage = () => {
 
   return (
     <div className="container mt-5">
+      <h1 className="text-center mb-4 d-flex align-items-center justify-content-center">
+                          {" "}
+                          <img
+                            src={cartIcon}
+                            width="32"
+                            height="37"
+                            className="d-inline-block align-top mx-2"
+                            alt="logo"
+                          />
+                          <span className="fw-medium fs-4">
+                            Shopping<span className="text-success mx-1">Store</span>
+                          </span>
+                        </h1>
        <div className="card p-4 shadow-sm mx-auto" style={{ maxWidth: '400px' }}>
       <h1 className="text-center mb-4">Create New User</h1>
       <div className="mb-3">
@@ -106,10 +121,14 @@ const CreateUserPage = () => {
           <option value="admin">Admin</option>
         </select> */}
       </div>
-      <button className="btn btn-success" onClick={handleCreateUser}>
+      <button className="btn btn-primary" onClick={handleCreateUser}>
         Create User
       </button>
     </div>
+    {/* Link to create an account */}
+          <div className="text-center mt-3">
+            <Link to='/user-login'>Already have an account? Login</Link>
+          </div>
     </div>
   );
 };
