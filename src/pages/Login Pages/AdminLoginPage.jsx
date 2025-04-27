@@ -49,19 +49,19 @@ const AdminLoginPage = () => {
 
   return (
     <div className="container mt-5">
-       <h1 className="text-center mb-4 d-flex align-items-center justify-content-center">
-                    {" "}
-                    <img
-                      src={cartIcon}
-                      width="32"
-                      height="37"
-                      className="d-inline-block align-top mx-2"
-                      alt="logo"
-                    />
-                    <span className="fw-medium fs-4">
-                      Shopping<span className="text-success mx-1">Store</span>
-                    </span>
-                  </h1>
+      <h1 className="text-center mb-4 d-flex align-items-center justify-content-center">
+              {" "}
+              <img
+                src={cartIcon}
+                width="32"
+                height="32"
+                className="d-inline-block align-top mx-2"
+                alt="logo"
+              />
+              <span className="fw-medium fw-bold">
+                Shopping<span className="text-success mx-1">Store</span>
+              </span>
+            </h1>
 
       <div className="card p-4 shadow-sm mx-auto mb-3" style={{ maxWidth: '400px' }}>
         <h2 className="text-center mb-4">Admin Login</h2>
