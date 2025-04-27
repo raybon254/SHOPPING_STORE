@@ -14,7 +14,7 @@ export const Fetch = ({children}) => {
     const fetchData = async() => {
          //fetch data
      try{
-        const res = await fetch("http://localhost:3000/products");
+        const res = await fetch("https://json-server-1-c3fk.onrender.com/products");
         const data = await res.json();
             setproduct(data);
     }
@@ -30,7 +30,7 @@ export const Fetch = ({children}) => {
 const fetchUsers = async() => {
     //fetch data
 try{
-   const res = await fetch("http://localhost:3000/users");
+   const res = await fetch("https://json-server-1-c3fk.onrender.com/users");
    const user = await res.json();
        setUsers(user);
 }

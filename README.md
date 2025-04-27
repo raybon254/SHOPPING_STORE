@@ -53,7 +53,7 @@ To run the Shopping Store in development mode, follow these instructions:
     ```
     This command will start a simple REST API based on the data in the `db.json` file.
 
-3.  **Open in Your Browser:** Once both servers are running, you can open your web browser and navigate to the address provided by the React development server (usually `http://localhost:3000` or a similar address). You should now be able to see and interact with the Shopping Store website.
+3.  **Open in Your Browser:** Once both servers are running, you can open your web browser and navigate to the address provided by the React development server (usually `https://json-server-1-c3fk.onrender.com` or a similar address). You should now be able to see and interact with the Shopping Store website.
 
 ## 🤝 Contributing
 

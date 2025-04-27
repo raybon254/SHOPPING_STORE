@@ -15,7 +15,7 @@ export const PostData = ({children}) => {
     const pData = async(newUser) => {
         try{
             setpostload(true)
-            const res = await fetch("http://localhost:3000/users",{
+            const res = await fetch("https://json-server-1-c3fk.onrender.com/users",{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -40,7 +40,7 @@ export const PostData = ({children}) => {
     const pProduct = async(newProduct) => {
         try{
             setpostload(true)
-            const res = await fetch("http://localhost:3000/products",{
+            const res = await fetch("https://json-server-1-c3fk.onrender.com/products",{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
