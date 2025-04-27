@@ -112,7 +112,7 @@ const Products = () => {
             // }
         })
       };
-    const { product } = useFetch();
+    const { product, fetchData } = useFetch();
     // const categories = Array.from(new Set(product.map(((d)=> d.category))))
     // const [ display, setdisplay ] = useState([])
     

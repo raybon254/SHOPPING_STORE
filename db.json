@@ -98,6 +98,33 @@
       "brand": "neonray",
       "category": "Electronic & Gadgets",
       "image": "https://www.dixons.co.ke/wp-content/uploads/2022/07/1-2.jpg"
+    },
+    {
+      "id": "b957",
+      "name": "samsung",
+      "description": "samsung",
+      "price": 3500,
+      "brand": "samsung",
+      "category": "Electronic & Gadgets",
+      "image": "https://static-01.daraz.lk/p/b139ab605b81305708a3b6f5dd0aa786.jpg"
+    },
+    {
+      "id": "9967",
+      "name": "samsung",
+      "description": "button phone",
+      "price": 3250,
+      "brand": "samsung",
+      "category": "Electronic & Gadgets",
+      "image": "https://i.pinimg.com/736x/e8/56/3b/e8563b283e3710a58ef40ab64ed5e1c4.jpg"
+    },
+    {
+      "id": "f32c",
+      "name": "iphone 6",
+      "description": "supernova",
+      "price": 350000,
+      "brand": "iphone",
+      "category": "Electronic & Gadgets",
+      "image": "https://api.mobilezmarket.com/images/1708546028_falcon%20supernova%20iphone%206%20buy%20online.jpg"
     }
   ],
   "users": [
@@ -169,12 +196,24 @@
       "id": "1",
       "productsId": [
         {
-          "productId": "1d33",
-          "quantity": 5
+          "productId": "4950",
+          "quantity": 3
         },
         {
-          "productId": "2a40",
+          "productId": "4951",
           "quantity": 2
+        },
+        {
+          "productId": "4947",
+          "quantity": 2
+        },
+        {
+          "productId": "4949",
+          "quantity": 1
+        },
+        {
+          "productId": "4948",
+          "quantity": 1
         }
       ]
     },

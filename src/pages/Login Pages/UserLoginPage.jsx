@@ -62,7 +62,7 @@ console.log(users)
                             className="d-inline-block align-top mx-2"
                             alt="logo"
                           />
-                          <span className="fw-medium fs-4">
+                          <span className="fw-bold ">
                             Shopping<span className="text-success mx-1">Store</span>
                           </span>
                         </h1>

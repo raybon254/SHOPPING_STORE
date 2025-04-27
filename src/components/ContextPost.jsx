@@ -1,5 +1,6 @@
 import React, { createContext } from "react";
-import { useContext, useState  } from "react";
+import { useContext, useState } from "react";
+import { useFetch } from "./ContextFetch";
 import swal from "sweetalert";
 
 // Data Post
@@ -8,7 +9,7 @@ export const PostContext = createContext();
 export const PostData = ({children}) => {
 
     const [postload, setpostload] = useState(false)
-
+    const { fetchData } = useFetch();
     // post userdata
 
     const pData = async(newUser) => {
@@ -50,6 +51,7 @@ export const PostData = ({children}) => {
             if (!res.ok) throw new Error("Failed to post user")
 
             swal("Success", "Product added successfully", "success");
+            fetchData();
         }
         catch(error){
             swal("Error posting data", error.message)
