@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import sneaker1 from '../assets/pics/download (1).jpeg';
 import sneaker2 from '../assets/pics/download (2).jpeg';
+import Swal from 'sweetalert2';
 import { FaTrash } from 'react-icons/fa';
 import { useUser } from "../pages/UserContext";
 
@@ -143,7 +144,12 @@ useEffect(() => {
   
 
   const handleCheckout = () => {
-    alert('Proceeding to checkout...');
+    Swal.fire({
+      title: 'Success',
+      text: 'Proceeding to checkout...',
+      icon: 'success',
+      confirmButtonColor: 'green'
+    });
     // You can redirect or perform real checkout logic here
   };
   console.log("Cart is ",cart)
