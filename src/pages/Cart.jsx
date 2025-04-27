@@ -54,20 +54,12 @@ useEffect(() => {
 
 
   console.log('Products Items',products)
-  const handleDecrease = (id) => {
-    setProducts((prev) =>
-      prev.map((item) =>
-        item.id === id && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      )
-    );
-  };
+
 
 
   const handleQuantityChange = async (userId, productId, action) => {
     try {
-      // First: fetch the current user's cart
+      // Fetch the current user's cart
       const fetchedCart = await fetch('http://localhost:3000/cart');
       const allCarts = await fetchedCart.json();
   
@@ -80,38 +72,38 @@ useEffect(() => {
   
       let updatedProducts = userCart.productsId.map(product => {
         if (product.productId === productId) {
+          // If action is increase, add 1 to quantity
           if (action === 'increase') {
+            product.quantity += 1;
             setCart(prev => ({
               ...prev,
-              productsId: prev.productsId.map(one => 
+              productsId: prev.productsId.map(one =>
                 one.productId === productId
                   ? { ...one, quantity: one.quantity + 1 }
                   : one
               )
             }));
-            
-            return { ...product, quantity: product.quantity + 1 };
-          } else if (action === 'decrease') {
+          } 
+          // If action is decrease, subtract 1 but ensure it doesn't go below 1
+          else if (action === 'decrease') {
+            const newQuantity = Math.max(product.quantity - 1, 1);
+            product.quantity = newQuantity;
             setCart(prev => ({
               ...prev,
-              productsId: prev.productsId.map(one => 
+              productsId: prev.productsId.map(one =>
                 one.productId === productId
-                  ? { ...one, quantity: one.quantity - 1 }
+                  ? { ...one, quantity: newQuantity }
                   : one
               )
             }));
-            
-            return { ...product, quantity: Math.max(product.quantity - 1, 1) };
           }
         }
-       
         return product;
       });
   
-      // Optional: if you want to remove product when quantity hits 0
       updatedProducts = updatedProducts.filter(product => product.quantity > 0);
   
-      // PATCH the user's cart
+      // Update the backend (db.json)
       const response = await fetch(`http://localhost:3000/cart/${userId}`, {
         method: 'PATCH',
         headers: {
@@ -126,7 +118,7 @@ useEffect(() => {
   
       console.log('Cart updated successfully');
   
-      // OPTIONAL: Update frontend state if you have setProducts
+      // Optionally update the frontend state with setProducts
       setProducts(prevProducts =>
         prevProducts.map(user => {
           if (user.id === userId) {
@@ -142,15 +134,11 @@ useEffect(() => {
   };
   
   
+  
 
   const handleCheckout = () => {
-    Swal.fire({
-      title: 'Success',
-      text: 'Proceeding to checkout...',
-      icon: 'success',
-      confirmButtonColor: 'green'
-    });
-    // You can redirect or perform real checkout logic here
+    alert('Proceeding to checkout...');
+
   };
   console.log("Cart is ",cart)
   const totalQuantity = cart.productsId?.reduce((sum, item) => sum + item.quantity, 0);
@@ -171,7 +159,7 @@ useEffect(() => {
         return;
       }
   
-      // Remove the product with matching productId
+      // Removing the product with matching productId
       const updatedProductsId = cart.productsId.filter(
         (item) => item.productId !== productIdToDelete
       );
@@ -201,6 +189,10 @@ useEffect(() => {
       console.error('Error deleting product from cart:', error);
     }
   };
+
+  const totalPrice = products
+  .reduce((acc, one) => acc + (one.price * one.quantity), 0);
+
   
   return (
     <div className="container my-4">
@@ -248,6 +240,7 @@ useEffect(() => {
                             <strong>Subtotal:</strong>{' '}
                             Ksh {(item.quantity * item.price).toLocaleString()}
                           </p>
+                          <p></p>
                           <FaTrash size={25} onClick={() => deleteProductFromCart(loggedInUser.id, item.id)} className="text-danger" style={{ cursor: 'pointer' }}
  />
                         </div>
@@ -260,7 +253,7 @@ useEffect(() => {
           </div>
 
           <div className="text-end mt-4">
-            <h4>Total: Ksh {total.toLocaleString()}</h4>
+            <h4>Total: Ksh {totalPrice.toLocaleString()}</h4>
        
             <button className="btn btn-success mt-2" onClick={handleCheckout}>
               Checkout
