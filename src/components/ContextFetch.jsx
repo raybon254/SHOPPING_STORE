@@ -47,7 +47,13 @@ useEffect(() => {
     fetchUsers();
 }, []);
 
-    if(isloading) return <p>Loading...</p>
+if (isloading) return (
+    <div className="d-flex justify-content-center align-items-center vh-100" style={{ backgroundColor: '#d4edda' }}>
+      <div className="spinner-border text-success" role="status" style={{ width: '4rem', height: '4rem' }}>
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  );
 
     return(
         <FetchContext.Provider value={{ product,setproduct, Users, fetchData}}>
