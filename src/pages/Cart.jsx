@@ -4,6 +4,7 @@ import sneaker2 from '../assets/pics/download (2).jpeg';
 import Swal from 'sweetalert2';
 import { FaTrash } from 'react-icons/fa';
 import { useUser } from "../pages/UserContext";
+import cartIcon from "../assets/cart.png";
 
 const Cart = () => {
     const { loggedInUser, setLoggedInUser } = useUser();
@@ -205,7 +206,18 @@ useEffect(() => {
       <h3 className="mb-4">Your Cart</h3>
       
       {products.length === 0 ? (
-        <p>Your cart is empty.</p>
+       
+        <div className="d-flex justify-content-center align-items-center">
+         
+          <img
+            src={cartIcon}
+            width="42"
+            height="42"
+            className="d-inline-block align-top me-2"
+            alt="Cart Logo"
+          />
+         
+        </div>
       ) : (
         <>
           <div className="row">
