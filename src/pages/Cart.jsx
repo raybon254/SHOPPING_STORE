@@ -205,7 +205,17 @@ useEffect(() => {
       <h3 className="mb-4">Your Cart</h3>
       
       {products.length === 0 ? (
-        <p>Your cart is empty.</p>
+           <div className="d-flex justify-content-center align-items-center vh-100" style={{ backgroundColor: '#d4edda' }}>
+            
+             <img
+               src={cartIcon}
+               width="42"
+               height="42"
+               className="d-inline-block align-top me-2"
+               alt="Cart Logo"
+             />
+            
+           </div>
       ) : (
         <>
           <div className="row">
