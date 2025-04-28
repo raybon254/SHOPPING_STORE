@@ -1,7 +1,7 @@
 import React, { createContext } from "react";
 import { useContext, useState , useEffect, } from "react";
 import swal from "sweetalert";
-
+import cartIcon from "../assets/cart.png";
 export const FetchContext = createContext();
 
 // Data Fetch products
@@ -47,8 +47,21 @@ useEffect(() => {
     fetchUsers();
 }, []);
 
-    if(isloading) return <p>Loading...</p>
-
+if (isloading) return (
+   
+    <div className="d-flex justify-content-center align-items-center vh-100" style={{ backgroundColor: '#d4edda' }}>
+     
+      <img
+        src={cartIcon}
+        width="42"
+        height="42"
+        className="d-inline-block align-top me-2"
+        alt="Cart Logo"
+      />
+     
+    </div>
+  );
+  
     return(
         <FetchContext.Provider value={{ product,setproduct, Users, fetchData}}>
             {children}
