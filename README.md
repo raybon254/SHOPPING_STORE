@@ -2,7 +2,7 @@
 
 A sleek and user-friendly online store showcasing a variety of phone products. Browse our selection, add your desired items to the cart, and proceed with your purchase at your convenience.
 
-**Our live demo is now available on Render: [https://group-3-shopping-cart-project1.onrender.com/](https://group-3-shopping-cart-project1.onrender.com/)**
+**Our live demo is now available on Render: [https://group-3-shopping-cart-project1.onrender.com/](https://shopping-store-szp7.onrender.com/)**
 
 ## ✨ Features
 
