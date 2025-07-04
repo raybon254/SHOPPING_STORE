@@ -60,7 +60,7 @@ We appreciate contributions from the community! The following individuals are cu
 * Larry
 * Kelvin
 * Mike
-* Ray
+* Brian
 * Liam
 
 ## 📞 Contact
